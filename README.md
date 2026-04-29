@@ -1,4 +1,4 @@
-# Web Basic Course
+# The Web Basic
 
 Tài liệu khoá học **Web Design and Development** biên soạn bởi Nguyễn Hữu Quyền.
 

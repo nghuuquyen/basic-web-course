@@ -6,7 +6,7 @@ export default defineConfig({
   base: '/basic-web-course',
   integrations: [
     starlight({
-      title: 'Web Basic Course',
+      title: 'The Web Basic',
       customCss: ['./src/styles/custom.css'],
       description: 'Tài liệu khoá học Web Design and Development — Nguyễn Hữu Quyền',
       defaultLocale: 'vi',
