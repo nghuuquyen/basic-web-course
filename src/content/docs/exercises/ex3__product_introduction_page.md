@@ -1,3 +1,7 @@
+---
+title: "Ex3 — Product Introduction Page"
+---
+
 # Ex3 — Product Introduction Page
 
 ## Mục Tiêu

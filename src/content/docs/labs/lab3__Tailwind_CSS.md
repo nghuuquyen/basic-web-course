@@ -1,3 +1,7 @@
+---
+title: "Lab 3 — Tailwind CSS"
+---
+
 # Lab 3 — Tailwind CSS
 
 Hầu hết CSS frameworks (Bootstrap, Bulma...) cho bạn các component sẵn: button, card, navbar. Bạn dùng class `btn btn-primary` và nhận về một button trông giống mọi website khác dùng cùng framework. Tailwind khác hoàn toàn — nó không cho bạn component, nó cho bạn **các primitive để tự xây**.

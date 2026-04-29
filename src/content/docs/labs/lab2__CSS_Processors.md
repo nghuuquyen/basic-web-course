@@ -1,3 +1,7 @@
+---
+title: "Lab 2 — CSS Processors"
+---
+
 # Lab 2 — CSS Processors
 
 Viết CSS cho project nhỏ thì ổn. Nhưng khi project lớn lên — hàng chục components, nhiều người cùng viết, màu sắc phải thống nhất trên toàn site — plain CSS bắt đầu cho thấy giới hạn của nó. CSS processors ra đời để giải quyết những giới hạn đó.

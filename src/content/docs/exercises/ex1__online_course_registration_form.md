@@ -1,3 +1,7 @@
+---
+title: "Ex1 — Online Course Registration Form"
+---
+
 # Ex1 — Online Course Registration Form
 
 ## Mục Tiêu

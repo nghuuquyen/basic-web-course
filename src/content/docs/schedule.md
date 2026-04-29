@@ -1,3 +1,7 @@
+---
+title: "Lịch Trình Khoá Học Web Basic"
+---
+
 # Lịch Trình Khoá Học Web Basic
 
 Khoá học gồm **15 buổi**, mỗi buổi 3 tiết, học một lần mỗi tuần. Tổng thời lượng khoảng 4 tháng.

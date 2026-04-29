@@ -1,3 +1,7 @@
+---
+title: "Module 2 — HTML & CSS"
+---
+
 # Module 2 — HTML & CSS
 
 HTML và CSS là bộ đôi không thể tách rời của web. **HTML** tạo ra *cấu trúc và nội dung* — tiêu đề, đoạn văn, link, hình ảnh. **CSS** quyết định *cách chúng trông như thế nào* — màu sắc, font chữ, bố cục. Module này không chỉ liệt kê thẻ và thuộc tính — nó giải thích tại sao mọi thứ được thiết kế như vậy và khi nào nên dùng cái gì.

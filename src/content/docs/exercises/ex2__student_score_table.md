@@ -1,3 +1,7 @@
+---
+title: "Ex2 — Student Score Table"
+---
+
 # Ex2 — Student Score Table
 
 ## Mục Tiêu

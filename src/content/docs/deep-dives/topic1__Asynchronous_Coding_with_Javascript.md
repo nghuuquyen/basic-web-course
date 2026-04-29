@@ -1,3 +1,7 @@
+---
+title: "Topic 1 — Lập Trình Bất Đồng Bộ với JavaScript"
+---
+
 # Topic 1 — Lập Trình Bất Đồng Bộ với JavaScript
 
 Hãy tưởng tượng bạn gọi một API để lấy danh sách sản phẩm. API đó mất 3 giây để trả về kết quả. Nếu JavaScript phải ngồi chờ trong 3 giây đó, browser sẽ đứng hoàn toàn — không cuộn được, không click được, không làm gì được. Người dùng sẽ nghĩ website bị treo.

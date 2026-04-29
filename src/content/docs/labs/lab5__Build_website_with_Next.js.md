@@ -1,3 +1,7 @@
+---
+title: "Lab 5 — Xây Dựng Website với Next.js"
+---
+
 # Lab 5 — Xây Dựng Website với Next.js
 
 Bốn lab trước cho bạn công cụ: Git để quản lý code, Sass để viết CSS tốt hơn, Tailwind để xây giao diện nhanh, responsive design để site hoạt động trên mọi thiết bị. Lab này là nơi ghép tất cả lại — bạn sẽ xây dựng một ứng dụng web thực sự, hoàn chỉnh từ giao diện đến database.
@@ -39,7 +43,7 @@ Lab này được chia thành hai phần độc lập, mỗi phần dạy một 
 
 ### Phần 1 — Pages Router: Static Blog với SSG
 
-**[→ Xem hướng dẫn chi tiết](/basic-web-course/labs/lab5__Part%201%20Next.js%20Pages%20Router%20–%20Static%20Blog%20with%20SSG/)**
+**[→ Xem hướng dẫn chi tiết](/basic-web-course/labs/lab5__part-1-nextjs-pages-router/)**
 
 Bạn sẽ xây một blog tĩnh: bài viết lưu dưới dạng Markdown, Next.js đọc file và generate ra trang HTML lúc build. Không cần database, deploy được lên GitHub Pages miễn phí.
 
@@ -60,7 +64,7 @@ Bạn sẽ xây một blog tĩnh: bài viết lưu dưới dạng Markdown, Next
 
 ### Phần 2 — App Router: Dynamic App với Supabase
 
-**[→ Xem hướng dẫn chi tiết](/basic-web-course/labs/lab5__Part%202%20Next.js%20App%20Router%20–%20Dynamic%20App%20with%20Supabase/)**
+**[→ Xem hướng dẫn chi tiết](/basic-web-course/labs/lab5__part-2-nextjs-app-router/)**
 
 Bạn sẽ xây một ứng dụng dashboard quản lý hoá đơn: kết nối PostgreSQL qua Supabase, CRUD operations, authentication, search và pagination. Đây là kiến trúc của ứng dụng production thực tế.
 

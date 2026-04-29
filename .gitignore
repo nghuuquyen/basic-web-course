@@ -1,6 +1,6 @@
 */*.DS_SORE
 */.DS_STORE
 */.DS_Store
-docs/
-site/
-.cache/
+dist/
+node_modules/
+.astro/

@@ -1,3 +1,7 @@
+---
+title: "Phần 2 — Next.js App Router: Dynamic App với Supabase"
+---
+
 # Phần 2 — Next.js App Router: Dynamic App với Supabase
 
 > **Kiến thức nền cần có:** HTML/CSS cơ bản, JavaScript ES6+, khái niệm về React component và props. Nếu chưa nắm các khái niệm server-side như routing, database, authentication — đọc thêm `module4__introduction_to_server_side_programming.md` trước.
