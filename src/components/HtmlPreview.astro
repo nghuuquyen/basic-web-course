@@ -1,0 +1,73 @@
+---
+/**
+ * HtmlPreview — renders an HTML/CSS snippet inside a sandboxed iframe.
+ * Use in .mdx files to give students a live visual alongside code blocks.
+ */
+interface Props {
+  html: string;
+  css?: string;
+  height?: string;
+}
+
+const { html, css = '', height = '180px' } = Astro.props;
+
+const srcdoc = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 1rem 1.25rem;
+    margin: 0;
+    color: #1f2937;
+    background: #ffffff;
+    line-height: 1.5;
+    font-size: 15px;
+  }
+  ${css}
+</style>
+</head>
+<body>${html}</body>
+</html>`;
+---
+
+<div class="html-preview">
+  <div class="html-preview__label">▶ Kết quả hiển thị</div>
+  <iframe
+    srcdoc={srcdoc}
+    style={`height: ${height}`}
+    title="HTML Preview"
+    sandbox="allow-same-origin"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<style>
+  .html-preview {
+    border: 1px solid var(--sl-color-hairline-light, #e5e7eb);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0.5rem 0 1.5rem;
+  }
+
+  .html-preview__label {
+    background: var(--sl-color-bg-sidebar, #f8fafc);
+    color: var(--sl-color-text-accent, #2563eb);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-bottom: 1px solid var(--sl-color-hairline-light, #e5e7eb);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    user-select: none;
+  }
+
+  iframe {
+    display: block;
+    border: none;
+    width: 100%;
+  }
+</style>

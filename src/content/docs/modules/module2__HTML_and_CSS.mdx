@@ -2,6 +2,8 @@
 title: "Module 2 — HTML & CSS"
 ---
 
+import HtmlPreview from '../../../components/HtmlPreview.astro';
+
 HTML và CSS là bộ đôi không thể tách rời của web. **HTML** tạo ra *cấu trúc và nội dung* — tiêu đề, đoạn văn, link, hình ảnh. **CSS** quyết định *cách chúng trông như thế nào* — màu sắc, font chữ, bố cục. Module này không chỉ liệt kê thẻ và thuộc tính — nó giải thích tại sao mọi thứ được thiết kế như vậy và khi nào nên dùng cái gì.
 
 ---
@@ -73,6 +75,17 @@ Vì có nhiều thứ đọc HTML ngoài mắt người:
 <h3>Mục nhỏ trong mục lớn</h3>
 ```
 
+<HtmlPreview
+  html={`
+    <h1>Tiêu đề cấp 1 — h1</h1>
+    <h2>Tiêu đề cấp 2 — h2</h2>
+    <h3>Tiêu đề cấp 3 — h3</h3>
+    <h4>Tiêu đề cấp 4 — h4</h4>
+    <p>Đoạn văn bình thường — p (để so sánh)</p>
+  `}
+  height="230px"
+/>
+
 Đừng dùng heading để làm chữ to hay đậm. Dùng heading để tạo *cấu trúc phân cấp* — giống mục lục của một cuốn sách.
 
 ### Đoạn văn và text inline
@@ -86,6 +99,17 @@ Vì có nhiều thứ đọc HTML ngoài mắt người:
 <code>console.log()</code>     <!-- code inline -->
 <span>Container không ý nghĩa</span>  <!-- dùng khi cần style một đoạn text -->
 ```
+
+<HtmlPreview
+  html={`
+    <p>Đây là một đoạn văn bản thông thường.</p>
+    <p>Chữ <strong>in đậm với strong</strong> — có ý nghĩa ngữ nghĩa "quan trọng".</p>
+    <p>Chữ <em>in nghiêng với em</em> — có ý nghĩa ngữ nghĩa "nhấn mạnh".</p>
+    <p>Code inline: <code>console.log("hello")</code> — hiển thị với font monospace.</p>
+    <p>Dùng <span style="color: steelblue;">span để style</span> một đoạn text bất kỳ.</p>
+  `}
+  height="200px"
+/>
 
 `<strong>` khác `<b>`: cả hai in đậm, nhưng `<strong>` nói "nội dung này quan trọng" — screen reader đọc to hơn, Google chú ý hơn.
 
@@ -142,6 +166,30 @@ Vì có nhiều thứ đọc HTML ngoài mắt người:
   <li>Viết JavaScript</li>
 </ol>
 ```
+
+<HtmlPreview
+  html={`
+    <div style="display: flex; gap: 3rem;">
+      <div>
+        <p style="margin: 0 0 4px; font-weight: 600; font-size: 13px; color: #6b7280;">ul — không thứ tự</p>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </div>
+      <div>
+        <p style="margin: 0 0 4px; font-weight: 600; font-size: 13px; color: #6b7280;">ol — có thứ tự</p>
+        <ol>
+          <li>Tạo file HTML</li>
+          <li>Thêm CSS</li>
+          <li>Viết JavaScript</li>
+        </ol>
+      </div>
+    </div>
+  `}
+  height="160px"
+/>
 
 ### Relative vs Absolute path
 
@@ -241,6 +289,20 @@ Câu hỏi: *"Nội dung này có ý nghĩa nếu bị đưa ra ngoài context c
 </blockquote>
 ```
 
+<HtmlPreview
+  html={`
+    <details style="border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; margin-bottom: 12px;">
+      <summary style="cursor: pointer; font-weight: 600;">Câu hỏi thường gặp: Giá là bao nhiêu? (click để mở)</summary>
+      <p style="margin: 8px 0 0;">Miễn phí cho sinh viên, 99$/tháng cho doanh nghiệp.</p>
+    </details>
+    <blockquote style="border-left: 4px solid #e5e7eb; margin: 0; padding: 8px 16px; color: #374151;">
+      <p style="margin: 0 0 4px;">"Code is read more often than it is written."</p>
+      <cite style="font-size: 14px; color: #6b7280;">— Guido van Rossum</cite>
+    </blockquote>
+  `}
+  height="160px"
+/>
+
 ---
 
 ## HTML Tables
@@ -279,6 +341,39 @@ Tables dùng để hiển thị **dữ liệu dạng bảng** — có hàng và 
   </tfoot>
 </table>
 ```
+
+<HtmlPreview
+  html={`
+    <table>
+      <caption style="font-weight: 600; margin-bottom: 8px;">Kết quả thi học kỳ 1</caption>
+      <thead>
+        <tr>
+          <th>Họ tên</th>
+          <th>HTML</th>
+          <th>CSS</th>
+          <th>JavaScript</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Nguyễn Văn A</th>
+          <td>9.0</td><td>8.5</td><td>9.5</td>
+        </tr>
+        <tr>
+          <th scope="row">Trần Thị B</th>
+          <td>8.0</td><td>9.0</td><td>8.5</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Điểm trung bình</th>
+          <td>8.5</td><td>8.75</td><td>9.0</td>
+        </tr>
+      </tfoot>
+    </table>
+  `}
+  height="190px"
+/>
 
 Gộp ô khi cần:
 ```html
@@ -333,6 +428,33 @@ Forms là cách user gửi data về server: đăng nhập, đăng ký, tìm ki�
 
 </form>
 ```
+
+<HtmlPreview
+  html={`
+    <form style="max-width: 400px; display: flex; flex-direction: column; gap: 10px;">
+      <div>
+        <label for="email" style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 4px;">Email:</label>
+        <input type="email" id="email" placeholder="you@example.com" style="width: 100%; padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 4px; font-size: 14px;">
+      </div>
+      <div>
+        <label for="country" style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 4px;">Quốc gia:</label>
+        <select id="country" style="width: 100%; padding: 8px 10px; border: 1px solid #d1d5db; border-radius: 4px; font-size: 14px;">
+          <option value="">-- Chọn --</option>
+          <option value="VN">Việt Nam</option>
+          <option value="US">Hoa Kỳ</option>
+        </select>
+      </div>
+      <fieldset style="border: 1px solid #d1d5db; border-radius: 4px; padding: 8px 12px;">
+        <legend style="font-size: 14px; font-weight: 500;">Giới tính:</legend>
+        <label style="margin-right: 16px; font-size: 14px;"><input type="radio" name="gender" value="male"> Nam</label>
+        <label style="font-size: 14px;"><input type="radio" name="gender" value="female"> Nữ</label>
+      </fieldset>
+      <label style="font-size: 14px;"><input type="checkbox"> Tôi đồng ý với điều khoản</label>
+      <button type="submit" style="padding: 8px 18px; background: #2563eb; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; align-self: flex-start;">Đăng ký</button>
+    </form>
+  `}
+  height="300px"
+/>
 
 ### GET vs POST — Khác nhau ở chỗ nào?
 
@@ -477,6 +599,22 @@ Mỗi HTML element là một "hộp" chữ nhật. Hiểu Box Model là hiểu t
 └─────────────────────────────────────────────────┘
 ```
 
+<HtmlPreview
+  html={`
+    <div style="display: inline-block; background: #fef9c3; padding: 20px; font-size: 13px;">
+      <div style="text-align: center; color: #854d0e; margin-bottom: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em;">MARGIN (khoảng ngoài)</div>
+      <div style="background: #fde68a; border: 3px solid #f59e0b; padding: 16px;">
+        <div style="text-align: center; color: #92400e; margin-bottom: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em;">BORDER</div>
+        <div style="background: #d1fae5; padding: 16px;">
+          <div style="text-align: center; color: #065f46; margin-bottom: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em;">PADDING (khoảng trong)</div>
+          <div style="background: #bfdbfe; padding: 12px 24px; text-align: center; font-weight: 700; color: #1e3a8a; font-size: 13px;">CONTENT</div>
+        </div>
+      </div>
+    </div>
+  `}
+  height="210px"
+/>
+
 ```css
 .box {
   width: 300px;
@@ -507,6 +645,26 @@ Mỗi HTML element là một "hộp" chữ nhật. Hiểu Box Model là hiểu t
 .box { width: 300px; padding: 20px; box-sizing: border-box; }
 /* → Kích thước thực = đúng 300px */
 ```
+
+<HtmlPreview
+  html={`
+    <div style="display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap;">
+      <div>
+        <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: #dc2626;">❌ Không có border-box</p>
+        <div style="width: 200px; padding: 20px; border: 4px solid #dc2626; background: #fee2e2; font-size: 13px;">
+          width: 200px<br>+ padding: 40px<br>+ border: 8px<br>= <strong>248px thực tế!</strong>
+        </div>
+      </div>
+      <div>
+        <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: #16a34a;">✅ Có border-box</p>
+        <div style="width: 200px; padding: 20px; border: 4px solid #16a34a; background: #dcfce7; box-sizing: border-box; font-size: 13px;">
+          width: 200px<br>padding + border<br>nằm bên trong<br>= <strong>đúng 200px</strong>
+        </div>
+      </div>
+    </div>
+  `}
+  height="190px"
+/>
 
 Luôn thêm vào đầu file CSS:
 ```css
@@ -544,6 +702,23 @@ center:       [     ■ ■ ■     ]
 space-between:[■     ■     ■  ]
 space-around: [ ■   ■   ■   ■ ]
 ```
+
+<HtmlPreview
+  html={`
+    <style>
+      .demo { margin-bottom: 8px; }
+      .label { font-size: 11px; font-weight: 600; color: #6b7280; margin-bottom: 3px; font-family: monospace; }
+      .row { display: flex; background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 4px; padding: 6px; gap: 6px; }
+      .item { background: #0ea5e9; color: white; padding: 6px 12px; border-radius: 3px; font-size: 12px; font-weight: 600; }
+    </style>
+    <div class="demo"><div class="label">flex-start</div><div class="row" style="justify-content: flex-start;"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div></div>
+    <div class="demo"><div class="label">flex-end</div><div class="row" style="justify-content: flex-end;"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div></div>
+    <div class="demo"><div class="label">center</div><div class="row" style="justify-content: center;"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div></div>
+    <div class="demo"><div class="label">space-between</div><div class="row" style="justify-content: space-between;"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div></div>
+    <div class="demo"><div class="label">space-around</div><div class="row" style="justify-content: space-around;"><div class="item">A</div><div class="item">B</div><div class="item">C</div></div></div>
+  `}
+  height="310px"
+/>
 
 **Ví dụ thực tế — navigation bar:**
 ```css
@@ -586,6 +761,26 @@ Grid dùng khi bạn cần bố cục **hàng VÀ cột** cùng lúc — tức l
 .main    { grid-column: 2 / -1; }
 .footer  { grid-column: 1 / -1; }
 ```
+
+<HtmlPreview
+  html={`
+    <style>
+      .page { display: grid; grid-template-columns: 140px 1fr; grid-template-rows: 44px 120px 36px; gap: 4px; font-size: 12px; font-weight: 600; }
+      .area { display: flex; align-items: center; justify-content: center; border-radius: 4px; }
+      .header  { grid-column: 1 / -1; background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+      .sidebar { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+      .main    { background: #f3f4f6; color: #374151; border: 1px solid #d1d5db; }
+      .footer  { grid-column: 1 / -1; background: #fce7f3; color: #9d174d; border: 1px solid #f9a8d4; }
+    </style>
+    <div class="page">
+      <div class="area header">header — grid-column: 1 / -1</div>
+      <div class="area sidebar">sidebar<br>250px</div>
+      <div class="area main">main — 1fr</div>
+      <div class="area footer">footer — grid-column: 1 / -1</div>
+    </div>
+  `}
+  height="240px"
+/>
 
 **Card grid responsive với Grid:**
 ```css
@@ -709,6 +904,44 @@ tr:hover { background: #f0f9ff; }          /* Hover row */
 tr:nth-child(even) { background: #fafafa; } /* Zebra stripe */
 ```
 
+<HtmlPreview
+  html={`
+    <table style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid #e5e7eb; background: #f9fafb; font-weight: 600;">Họ tên</th>
+          <th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid #e5e7eb; background: #f9fafb; font-weight: 600;">HTML</th>
+          <th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid #e5e7eb; background: #f9fafb; font-weight: 600;">CSS</th>
+          <th style="padding: 12px 16px; text-align: left; border-bottom: 1px solid #e5e7eb; background: #f9fafb; font-weight: 600;">JavaScript</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Nguyễn Văn A</td>
+          <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">9.0</td>
+          <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">8.5</td>
+          <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">9.5</td>
+        </tr>
+        <tr style="background: #fafafa;">
+          <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Trần Thị B</td>
+          <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">8.0</td>
+          <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">9.0</td>
+          <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">8.5</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">Lê Văn C</td>
+          <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">9.5</td>
+          <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">8.0</td>
+          <td style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb;">9.0</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size: 12px; color: #6b7280; margin: 8px 0 0;">* Thử hover vào các hàng để xem hiệu ứng highlight</p>
+    <style>tr:hover td { background: #f0f9ff !important; }</style>
+  `}
+  height="210px"
+/>
+
 ### Styling form inputs
 
 ```css
@@ -742,6 +975,45 @@ button:hover { background: #1d4ed8; }
 button:active { transform: scale(0.98); }
 ```
 
+<HtmlPreview
+  html={`
+    <style>
+      .field { margin-bottom: 12px; }
+      label { display: block; font-size: 13px; font-weight: 500; color: #374151; margin-bottom: 4px; }
+      input, textarea, select {
+        width: 100%; padding: 10px 14px;
+        border: 1px solid #d1d5db; border-radius: 6px;
+        font-size: 14px; transition: border-color 0.2s, box-shadow 0.2s;
+        font-family: inherit; outline: none; box-sizing: border-box;
+      }
+      input:focus, textarea:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      }
+      button {
+        padding: 10px 20px; background: #2563eb; color: white;
+        border: none; border-radius: 6px; cursor: pointer;
+        font-size: 14px; transition: background 0.2s, transform 0.1s;
+      }
+      button:hover { background: #1d4ed8; }
+      button:active { transform: scale(0.98); }
+    </style>
+    <div style="max-width: 340px;">
+      <div class="field">
+        <label>Email</label>
+        <input type="email" placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label>Giới thiệu</label>
+        <textarea rows="2" placeholder="Kể về bản thân..."></textarea>
+      </div>
+      <p style="font-size: 12px; color: #6b7280; margin: 0 0 10px;">* Click vào input để thấy focus style</p>
+      <button>Lưu thay đổi</button>
+    </div>
+  `}
+  height="270px"
+/>
+
 ### Transitions và Animations
 
 ```css
@@ -771,6 +1043,41 @@ button:active { transform: scale(0.98); }
   animation: fadeInUp 0.3s ease forwards;
 }
 ```
+
+<HtmlPreview
+  html={`
+    <style>
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .cards { display: flex; gap: 16px; flex-wrap: wrap; }
+      .card {
+        border: 1px solid #e5e7eb; border-radius: 10px;
+        padding: 16px 20px; flex: 1 1 160px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background: white; cursor: pointer;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+      }
+      .alert {
+        background: #dcfce7; border: 1px solid #86efac;
+        color: #166534; padding: 10px 14px; border-radius: 6px;
+        margin-top: 12px; font-size: 13px;
+        animation: fadeInUp 0.4s ease forwards;
+      }
+    </style>
+    <p style="font-size: 12px; color: #6b7280; margin: 0 0 8px;">* Hover vào card để thấy transition</p>
+    <div class="cards">
+      <div class="card"><strong>Card A</strong><p style="margin: 4px 0 0; font-size: 13px; color: #6b7280;">Hover để nâng lên</p></div>
+      <div class="card"><strong>Card B</strong><p style="margin: 4px 0 0; font-size: 13px; color: #6b7280;">Hover để nâng lên</p></div>
+    </div>
+    <div class="alert">✅ Alert này xuất hiện với animation fadeInUp</div>
+  `}
+  height="230px"
+/>
 
 ---
 
