@@ -41,8 +41,8 @@ Nếu bạn tự học, có thể theo lịch này hoặc điều chỉnh tốc 
 - Web tĩnh khác web động ở điểm gì
 
 **Tài liệu tham khảo:**
-- [Introduction to Web Development](modules/module0__Introduction_to_Web_Development.md)
-- [Module 1 — How the Web Works](modules/module1__How_the_Web_Works.md)
+- [Introduction to Web Development](/modules/module0__introduction_to_web_development)
+- [Module 1 — How the Web Works](/modules/module1__how_the_web_works)
 
 ---
 
@@ -61,7 +61,7 @@ Nếu bạn tự học, có thể theo lịch này hoặc điều chỉnh tốc 
 - Cách dùng AI để hỗ trợ viết code — và tại sao cần hiểu code để prompt đúng
 
 **Tài liệu tham khảo:**
-- [Topic 2 — Các Giai Đoạn Xây Dựng Ứng Dụng Web](deep-dives/topic2__Stages_to_Build_An_Web_Application.md)
+- [Topic 2 — Các Giai Đoạn Xây Dựng Ứng Dụng Web](/deep-dives/topic2__stages_to_build_an_web_application)
 
 ---
 
@@ -85,7 +85,7 @@ Nếu bạn tự học, có thể theo lịch này hoặc điều chỉnh tốc 
 > Buổi này chủ yếu là code tay nhiều. Hãy mở trình duyệt và thử ngay từng đoạn code trong khi học.
 
 **Tài liệu tham khảo:**
-- [Module 2 — HTML & CSS](modules/module2__HTML_and_CSS.md)
+- [Module 2 — HTML & CSS](/modules/module2__html_and_css)
 
 ---
 
@@ -99,9 +99,9 @@ Nếu bạn tự học, có thể theo lịch này hoặc điều chỉnh tốc 
 - CSS Effects — transitions, hover states
 
 **Bài tập giao cuối buổi** (hạn nộp 10 ngày):
-- [Ex1 — Online Course Registration Form](exercises/ex1__online_course_registration_form.md)
-- [Ex2 — Student Score Table](exercises/ex2__student_score_table.md)
-- [Ex3 — Product Introduction Page](exercises/ex3__product_introduction_page.md)
+- [Ex1 — Online Course Registration Form](/exercises/ex1__online_course_registration_form)
+- [Ex2 — Student Score Table](/exercises/ex2__student_score_table)
+- [Ex3 — Product Introduction Page](/exercises/ex3__product_introduction_page)
 
 **Sau buổi này bạn biết:**
 - Xây layout phức tạp bằng Flexbox và Grid
@@ -109,8 +109,8 @@ Nếu bạn tự học, có thể theo lịch này hoặc điều chỉnh tốc 
 - Sử dụng CSS transitions để thêm hiệu ứng cơ bản
 
 **Tài liệu tham khảo:**
-- [Module 2 — HTML & CSS](modules/module2__HTML_and_CSS.md) *(tiếp theo)*
-- [Lab 2 — CSS Processors](labs/lab2__CSS_Processors.md) *(có thể đọc trước để chuẩn bị)*
+- [Module 2 — HTML & CSS](/modules/module2__html_and_css) *(tiếp theo)*
+- [Lab 2 — CSS Processors](/labs/lab2__css_processors) *(có thể đọc trước để chuẩn bị)*
 
 ---
 
@@ -134,7 +134,7 @@ Nếu bạn tự học, có thể theo lịch này hoặc điều chỉnh tốc 
 > Còn lại cho buổi sau: Closure, Prototypes/Classes/Modules, Async, Frameworks.
 
 **Tài liệu tham khảo:**
-- [Module 3 — JavaScript](modules/module3__JavaScript.md)
+- [Module 3 — JavaScript](/modules/module3__javascript)
 
 ---
 
@@ -157,7 +157,7 @@ Nếu bạn tự học, có thể theo lịch này hoặc điều chỉnh tốc 
 - Sử dụng một số Browser APIs phổ biến
 
 **Tài liệu tham khảo:**
-- [Module 3 — JavaScript](modules/module3__JavaScript.md) *(tiếp theo — phần Frameworks và Browser APIs)*
+- [Module 3 — JavaScript](/modules/module3__javascript) *(tiếp theo — phần Frameworks và Browser APIs)*
 
 ---
 
@@ -188,7 +188,7 @@ git pull, fetch, merge, rebase
 > Còn lại cho buổi sau: Git Best Practices (section 3).
 
 **Tài liệu tham khảo:**
-- [Lab 1 — Git & Distributed Version Control](labs/lab1__Git_Distributed_Version_Control.md)
+- [Lab 1 — Git & Distributed Version Control](/labs/lab1__git_distributed_version_control)
 
 ---
 
@@ -205,7 +205,7 @@ git pull, fetch, merge, rebase
 - Gọi API bằng fetch/async-await và xử lý response
 
 **Tài liệu tham khảo:**
-- [Topic 1 — Lập Trình Bất Đồng Bộ với JavaScript](deep-dives/topic1__Asynchronous_Coding_with_Javascript.md)
+- [Topic 1 — Lập Trình Bất Đồng Bộ với JavaScript](/deep-dives/topic1__asynchronous_coding_with_javascript)
 
 ---
 
@@ -226,8 +226,8 @@ git pull, fetch, merge, rebase
 - Hiểu ưu/nhược điểm của từng cách tiếp cận
 
 **Tài liệu tham khảo:**
-- [Lab 2 — CSS Processors](labs/lab2__CSS_Processors.md)
-- [Lab 3 — Tailwind CSS](labs/lab3__Tailwind_CSS.md)
+- [Lab 2 — CSS Processors](/labs/lab2__css_processors)
+- [Lab 3 — Tailwind CSS](/labs/lab3__tailwind_css)
 
 ---
 
@@ -255,8 +255,8 @@ git pull, fetch, merge, rebase
 - Quy trình kickoff dự án với client từ đầu đến lúc bắt tay code
 
 **Tài liệu tham khảo:**
-- [Lab 4 — Layout & Responsive Web](labs/lab4__Layout_and_Responsive_Web.md)
-- [Topic 3 — SEO và Web Performance](deep-dives/topic3__SEO_and_Web_Performance.md)
+- [Lab 4 — Layout & Responsive Web](/labs/lab4__layout_and_responsive_web)
+- [Topic 3 — SEO và Web Performance](/deep-dives/topic3__seo_and_web_performance)
 
 ---
 
@@ -291,7 +291,7 @@ Buổi này dạy toàn bộ Module 4 — bức tranh tổng thể về phía se
 - Authentication hoạt động như thế nào trong một web app
 
 **Tài liệu tham khảo:**
-- [Module 4 — Lập Trình Server-Side và Dynamic Web](modules/module4__introduction_to_server_side_programming.md)
+- [Module 4 — Lập Trình Server-Side và Dynamic Web](/modules/module4__introduction_to_server_side_programming)
 
 ---
 
@@ -323,7 +323,7 @@ Buổi này đi qua Lab 5 — áp dụng trực tiếp những gì học ở bu�
 - Bắt đầu áp dụng vào Final Project
 
 **Tài liệu tham khảo:**
-- [Lab 5 — Xây Dựng Website với Next.js](labs/lab5__Build_website_with_Next.js.md)
+- [Lab 5 — Xây Dựng Website với Next.js](/labs/lab5__build_website_with_nextjs)
 
 ---
 
@@ -369,7 +369,7 @@ Không có nội dung lý thuyết mới. Buổi này dành hoàn toàn cho vi�
 - Task 5: feedback đã viết và đã implement (hoặc ghi rõ lý do không implement)
 
 **Tài liệu tham khảo:**
-- [Topic 3 — SEO và Web Performance](deep-dives/topic3__SEO_and_Web_Performance.md)
+- [Topic 3 — SEO và Web Performance](/deep-dives/topic3__seo_and_web_performance)
 
 ---
 

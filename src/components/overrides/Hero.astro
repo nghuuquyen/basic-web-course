@@ -1,0 +1,159 @@
+---
+/**
+ * Hero component override.
+ * Rewrites action `link` values with import.meta.env.BASE_URL so hero buttons
+ * work regardless of SITE_BASE deploy config.
+ * Markup and styles are copied from Starlight's built-in Hero + LinkButton.
+ */
+import { Image } from 'astro:assets';
+
+// Minimal icon map — add entries as needed for hero action icons.
+const ICONS = {
+  'right-arrow': `<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`,
+  'document':    `<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>`,
+};
+
+const PAGE_TITLE_ID = '_top'; // from Starlight internals
+
+const { data } = Astro.locals.starlightRoute.entry;
+const { title = data.title, tagline, image, actions = [] } = data.hero || {};
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+function withBase(href) {
+  if (typeof href !== 'string') return href;
+  if (!href.startsWith('/')) return href;
+  if (base && (href === base || href.startsWith(base + '/'))) return href;
+  return base + href;
+}
+
+const imageAttrs = {
+  loading: 'eager',
+  decoding: 'async',
+  width: 400,
+  height: 400,
+  alt: image?.alt || '',
+};
+
+let darkImage;
+let lightImage;
+let rawHtml;
+if (image) {
+  if ('file' in image) {
+    darkImage = image.file;
+  } else if ('dark' in image) {
+    darkImage = image.dark;
+    lightImage = image.light;
+  } else {
+    rawHtml = image.html;
+  }
+}
+---
+
+<div class="hero">
+  {darkImage && (
+    <Image src={darkImage} {...imageAttrs} class:list={{ 'light:sl-hidden': Boolean(lightImage) }} />
+  )}
+  {lightImage && <Image src={lightImage} {...imageAttrs} class="dark:sl-hidden" />}
+  {rawHtml && <div class="hero-html sl-flex" set:html={rawHtml} />}
+  <div class="sl-flex stack">
+    <div class="sl-flex copy">
+      <h1 id={PAGE_TITLE_ID} data-page-title set:html={title} />
+      {tagline && <div class="tagline" set:html={tagline} />}
+    </div>
+    {actions.length > 0 && (
+      <div class="sl-flex actions">
+        {actions.map(({ icon, link, text, variant = 'primary' }) => (
+          <a href={withBase(link)} class:list={['hero-btn not-content', variant]}>
+            {icon?.name && ICONS[icon.name] && <Fragment set:html={ICONS[icon.name]} />}
+            {text}
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  .hero {
+    display: grid;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+  .hero > img,
+  .hero > .hero-html {
+    object-fit: contain;
+    width: min(70%, 20rem);
+    height: auto;
+    margin-inline: auto;
+  }
+  .stack {
+    flex-direction: column;
+    gap: clamp(1.5rem, calc(1.5rem + 1vw), 2rem);
+    text-align: center;
+  }
+  .copy {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  .copy > * { max-width: 50ch; }
+  h1 {
+    font-size: clamp(var(--sl-text-3xl), calc(0.25rem + 5vw), var(--sl-text-6xl));
+    line-height: var(--sl-line-height-headings);
+    font-weight: 600;
+    color: var(--sl-color-white);
+  }
+  .tagline {
+    font-size: clamp(var(--sl-text-base), calc(0.0625rem + 2vw), var(--sl-text-xl));
+    color: var(--sl-color-gray-2);
+  }
+  .actions {
+    gap: 1rem 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Button styles (from Starlight's LinkButton.astro) */
+  .hero-btn {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 999rem;
+    display: inline-flex;
+    font-size: var(--sl-text-sm);
+    gap: 0.5em;
+    line-height: 1.1875;
+    outline-offset: 0.25rem;
+    padding: 0.4375rem 1.125rem;
+    text-decoration: none;
+  }
+  .hero-btn.primary {
+    background: var(--sl-color-text-accent);
+    border-color: var(--sl-color-text-accent);
+    color: var(--sl-color-black);
+  }
+  .hero-btn.primary:hover { color: var(--sl-color-black); }
+  .hero-btn.secondary {
+    border-color: inherit;
+    color: var(--sl-color-white);
+  }
+  .hero-btn.minimal {
+    color: var(--sl-color-white);
+    padding-inline: 0;
+  }
+
+  @media (min-width: 50rem) {
+    .hero {
+      grid-template-columns: 7fr 4fr;
+      gap: 3%;
+      padding-block: clamp(2.5rem, calc(1rem + 10vmin), 10rem);
+    }
+    .hero > img,
+    .hero > .hero-html { order: 2; width: min(100%, 25rem); }
+    .stack { text-align: start; }
+    .copy { align-items: flex-start; }
+    .actions { justify-content: flex-start; }
+    .hero-btn { font-size: var(--sl-text-base); padding: 0.9375rem 1.25rem; }
+  }
+</style>

@@ -1,13 +1,28 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import rehypeBasePath from './src/plugins/rehype-base-path.mjs';
+import remarkBasePath from './src/plugins/remark-base-path.mjs';
+
+// SITE_BASE controls the deploy path.
+// GitHub Pages (project repo): set SITE_BASE=/basic-web-course
+// Vercel / root deploy: leave unset (defaults to '/basic-web-course' for now,
+//   override with SITE_BASE='' or SITE_BASE=/ when deploying to root)
+const siteBase = process.env.SITE_BASE ?? '/basic-web-course';
 
 export default defineConfig({
   site: 'https://nghuuquyen.github.io',
-  base: '/basic-web-course',
+  base: siteBase,
+  markdown: {
+    remarkPlugins: [[remarkBasePath, { base: siteBase }]],
+    rehypePlugins: [[rehypeBasePath, { base: siteBase }]],
+  },
   integrations: [
     starlight({
       title: 'The Web Basic',
       customCss: ['./src/styles/custom.css'],
+      components: {
+        Hero: './src/components/overrides/Hero.astro',
+      },
       description: 'Tài liệu khoá học Web Design and Development — Nguyễn Hữu Quyền',
       defaultLocale: 'vi',
       locales: {

@@ -21,11 +21,11 @@ Tài liệu Lab 5 này là bản **tổng hợp và dịch sang Tiếng Việt**
 
 Lab 5 là nơi bạn hiện thực hóa một ứng dụng web thực sự — nhưng code chỉ là một phần của quá trình. Để hiểu ngữ cảnh đầy đủ, hãy đọc thêm hai chủ đề sau song song với Lab này:
 
-**[Topic 2 — Các Giai Đoạn Xây Dựng Ứng Dụng Web](/basic-web-course/deep-dives/topic2__stages-to-build-an-web-application/)**
+**[Topic 2 — Các Giai Đoạn Xây Dựng Ứng Dụng Web](/deep-dives/topic2__stages_to_build_an_web_application)**
 
 Từ thu thập yêu cầu, lên kế hoạch, thiết kế, lập trình, kiểm thử, đến bảo trì — Lab 5 chính là giai đoạn "Lập trình" trong quy trình thực tế. Topic 2 giúp bạn hiểu code của mình nằm ở đâu trong bức tranh lớn, cách làm việc với client, ước tính thời gian và chi phí, và những giai đoạn nào xảy ra trước và sau khi bạn gõ dòng code đầu tiên.
 
-**[Topic 3 — SEO và Web Performance](/basic-web-course/deep-dives/topic3__seo-and-web-performance/)**
+**[Topic 3 — SEO và Web Performance](/deep-dives/topic3__seo_and_web_performance)**
 
 Next.js được chọn một phần vì nó giải quyết trực tiếp hai vấn đề lớn của React thuần: SEO kém và tốc độ load chậm. Topic 3 đào sâu vào cơ chế hoạt động — tại sao SSR/SSG quan trọng với Google, Core Web Vitals là gì và cách đo, cách tối ưu ảnh và fonts, và cách monitor sau khi deploy. Đây là kiến thức bạn sẽ dùng ngay khi làm Phần 2 của Lab.
 
@@ -66,7 +66,7 @@ Lab này được chia thành hai phần độc lập, mỗi phần dạy một 
 
 ### Phần 1 — Pages Router: Static Blog với SSG
 
-**[→ Xem hướng dẫn chi tiết](/basic-web-course/labs/lab5__part-1-nextjs-pages-router/)**
+**[→ Xem hướng dẫn chi tiết](/labs/lab5__part-1-nextjs-pages-router)**
 
 Bạn sẽ xây một blog tĩnh: bài viết lưu dưới dạng Markdown, Next.js đọc file và generate ra trang HTML lúc build. Không cần database, deploy được lên GitHub Pages miễn phí.
 
@@ -87,7 +87,7 @@ Bạn sẽ xây một blog tĩnh: bài viết lưu dưới dạng Markdown, Next
 
 ### Phần 2 — App Router: Dynamic App với Supabase
 
-**[→ Xem hướng dẫn chi tiết](/basic-web-course/labs/lab5__part-2-nextjs-app-router/)**
+**[→ Xem hướng dẫn chi tiết](/labs/lab5__part-2-nextjs-app-router)**
 
 Bạn sẽ xây một ứng dụng dashboard quản lý hoá đơn: kết nối PostgreSQL qua Supabase, CRUD operations, authentication, search và pagination. Đây là kiến trúc của ứng dụng production thực tế.
 
