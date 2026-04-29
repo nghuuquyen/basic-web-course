@@ -6,7 +6,7 @@ site_url: https://nghuuquyen.github.io/basic-web-course/
 repo_name: nghuuquyen/basic-web-course
 repo_url: https://github.com/nghuuquyen/basic-web-course
 
-docs_dir: .
+docs_dir: docs
 site_dir: site
 
 theme:
