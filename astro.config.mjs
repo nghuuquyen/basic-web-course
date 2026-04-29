@@ -21,11 +21,11 @@ export default defineConfig({
       ],
       sidebar: [
         { label: 'Trang chủ', link: '/' },
-        { label: 'Lịch học', link: '/schedule' },
+        { label: 'Lộ trình học', link: '/schedule' },
         {
           label: 'Modules',
           items: [
-            { label: 'Giới thiệu', link: '/modules/module0__introduction_to_web_development' },
+            { label: 'Giới Thiệu về Nghề Lập Trình Web', link: '/modules/module0__introduction_to_web_development' },
             { label: 'Module 1: How the Web Works', link: '/modules/module1__how_the_web_works' },
             { label: 'Module 2: HTML & CSS', link: '/modules/module2__html_and_css' },
             { label: 'Module 3: JavaScript', link: '/modules/module3__javascript' },
