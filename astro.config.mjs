@@ -6,7 +6,8 @@ export default defineConfig({
   base: '/basic-web-course',
   integrations: [
     starlight({
-      title: 'Web Basic — Tài Liệu Khoá Học',
+      title: 'Web Basic Course',
+      customCss: ['./src/styles/custom.css'],
       description: 'Tài liệu khoá học Web Design and Development — Nguyễn Hữu Quyền',
       defaultLocale: 'vi',
       locales: {
@@ -24,7 +25,7 @@ export default defineConfig({
         {
           label: 'Modules',
           items: [
-            { label: 'Module 0: Giới thiệu', link: '/modules/module0__introduction_to_web_development' },
+            { label: 'Giới thiệu', link: '/modules/module0__introduction_to_web_development' },
             { label: 'Module 1: How the Web Works', link: '/modules/module1__how_the_web_works' },
             { label: 'Module 2: HTML & CSS', link: '/modules/module2__html_and_css' },
             { label: 'Module 3: JavaScript', link: '/modules/module3__javascript' },

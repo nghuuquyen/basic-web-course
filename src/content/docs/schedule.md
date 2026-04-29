@@ -41,7 +41,7 @@ Nếu bạn tự học, có thể theo lịch này hoặc điều chỉnh tốc 
 - Web tĩnh khác web động ở điểm gì
 
 **Tài liệu tham khảo:**
-- [Module 0 — Introduction to Web Development](modules/module0__Introduction_to_Web_Development.md)
+- [Introduction to Web Development](modules/module0__Introduction_to_Web_Development.md)
 - [Module 1 — How the Web Works](modules/module1__How_the_Web_Works.md)
 
 ---
