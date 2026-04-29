@@ -2,20 +2,32 @@
 /**
  * HtmlPreview — renders an HTML/CSS snippet inside a sandboxed iframe.
  * Use in .mdx files to give students a live visual alongside code blocks.
+ *
+ * Props:
+ *   html        — HTML body content
+ *   css         — optional extra <style> content
+ *   height      — iframe height (default "180px")
+ *   useTailwind — load Tailwind CDN for Tailwind utility class previews
  */
 interface Props {
   html: string;
   css?: string;
   height?: string;
+  useTailwind?: boolean;
 }
 
-const { html, css = '', height = '180px' } = Astro.props;
+const { html, css = '', height = '180px', useTailwind = false } = Astro.props;
+
+const tailwindTag = useTailwind
+  ? '<script src="https://cdn.tailwindcss.com"></script>'
+  : '';
 
 const srcdoc = `<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+${tailwindTag}
 <style>
   *, *::before, *::after { box-sizing: border-box; }
   body {
@@ -32,6 +44,10 @@ const srcdoc = `<!DOCTYPE html>
 </head>
 <body>${html}</body>
 </html>`;
+
+const sandbox = useTailwind
+  ? 'allow-same-origin allow-scripts'
+  : 'allow-same-origin';
 ---
 
 <div class="html-preview">
@@ -40,7 +56,7 @@ const srcdoc = `<!DOCTYPE html>
     srcdoc={srcdoc}
     style={`height: ${height}`}
     title="HTML Preview"
-    sandbox="allow-same-origin"
+    sandbox={sandbox}
     loading="lazy"
   ></iframe>
 </div>
