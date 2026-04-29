@@ -1,0 +1,796 @@
+# Module 2 — HTML & CSS
+
+HTML và CSS là bộ đôi không thể tách rời của web. **HTML** tạo ra *cấu trúc và nội dung* — tiêu đề, đoạn văn, link, hình ảnh. **CSS** quyết định *cách chúng trông như thế nào* — màu sắc, font chữ, bố cục. Module này không chỉ liệt kê thẻ và thuộc tính — nó giải thích tại sao mọi thứ được thiết kế như vậy và khi nào nên dùng cái gì.
+
+---
+
+# PHẦN 1 — HTML
+
+---
+
+## HTML là gì, và markup có nghĩa là gì?
+
+HTML (HyperText Markup Language) không phải ngôn ngữ lập trình — nó là **ngôn ngữ đánh dấu**. "Đánh dấu" nghĩa là bạn gắn thêm thông tin vào nội dung để mô tả ý nghĩa của nó.
+
+Ví dụ, khi bạn viết "Lập trình web" — đó là nội dung. Khi bạn viết `<h1>Lập trình web</h1>` — bạn đang nói với browser (và với mọi thứ đọc trang này, kể cả Google): *"Đây là tiêu đề cấp một của tài liệu này."*
+
+```html
+<!-- Markup cho browser biết ý NGHĨA, không chỉ cách TRÔNG -->
+<h1>Tiêu đề</h1>         → Đây là tiêu đề quan trọng nhất
+<p>Đoạn văn bản</p>      → Đây là một đoạn văn
+<a href="...">Link</a>   → Đây là liên kết đến nơi khác
+<img src="...">          → Đây là hình ảnh
+```
+
+### Tại sao không chỉ dùng `<div>` cho tất cả?
+
+Về mặt hiển thị, trình duyệt có thể style bất kỳ thẻ nào trông giống bất kỳ thứ gì. Vậy tại sao phải phân biệt `<h1>`, `<p>`, `<nav>`?
+
+Vì có nhiều thứ đọc HTML ngoài mắt người:
+- **Screen reader** (cho người khiếm thị) — đọc tiêu đề `<h1>` khác đọc `<p>`
+- **Google crawler** — hiểu nội dung quan trọng qua heading, không phải qua CSS
+- **Chính bạn sau 6 tháng** — code semantic dễ đọc hơn nhiều
+
+Đây gọi là **semantic markup** — dùng đúng thẻ cho đúng nội dung.
+
+### Cấu trúc file HTML
+
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <!-- Metadata — không hiển thị trực tiếp -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tên trang — hiện trên tab trình duyệt</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Mọi thứ hiển thị cho người dùng đều ở đây -->
+  <h1>Xin chào!</h1>
+  <p>Nội dung trang.</p>
+</body>
+</html>
+```
+
+`<!DOCTYPE html>` — khai báo đây là HTML5, không phải HTML4 hay XHTML.  
+`<head>` — cấu hình trang, link đến CSS/JS. Không hiển thị.  
+`<body>` — toàn bộ nội dung trang.
+
+---
+
+## Các elements cơ bản
+
+### Tiêu đề
+
+6 cấp, từ quan trọng nhất (`h1`) đến ít nhất (`h6`). Dùng để tạo cấu trúc tài liệu:
+
+```html
+<h1>Tên website hoặc tên trang — chỉ dùng một lần</h1>
+<h2>Mục lớn</h2>
+<h3>Mục nhỏ trong mục lớn</h3>
+```
+
+Đừng dùng heading để làm chữ to hay đậm. Dùng heading để tạo *cấu trúc phân cấp* — giống mục lục của một cuốn sách.
+
+### Đoạn văn và text inline
+
+```html
+<p>Đây là một đoạn văn bản thông thường.</p>
+
+<!-- Inline elements — không tạo xuống dòng, nằm trong flow của text -->
+<strong>Quan trọng</strong>    <!-- in đậm + có ý nghĩa ngữ nghĩa -->
+<em>Nhấn mạnh</em>             <!-- in nghiêng + có ý nghĩa ngữ nghĩa -->
+<code>console.log()</code>     <!-- code inline -->
+<span>Container không ý nghĩa</span>  <!-- dùng khi cần style một đoạn text -->
+```
+
+`<strong>` khác `<b>`: cả hai in đậm, nhưng `<strong>` nói "nội dung này quan trọng" — screen reader đọc to hơn, Google chú ý hơn.
+
+### Links
+
+```html
+<!-- Link cơ bản -->
+<a href="https://google.com">Google</a>
+
+<!-- Mở tab mới — luôn thêm rel="noopener noreferrer" vì lý do bảo mật -->
+<a href="https://example.com" target="_blank" rel="noopener noreferrer">
+  Mở tab mới
+</a>
+
+<!-- Link trong cùng site — dùng relative path -->
+<a href="/about">Về chúng tôi</a>
+<a href="../contact.html">Liên hệ</a>
+
+<!-- Link đến một vị trí trong trang -->
+<a href="#section-2">Chuyển đến phần 2</a>
+<h2 id="section-2">Phần 2</h2>  <!-- element đích cần có id -->
+```
+
+### Ảnh
+
+```html
+<img src="photo.jpg" alt="Người phụ nữ đang viết code trên laptop">
+```
+
+`alt` là bắt buộc (về mặt best practice). Nó hiển thị khi ảnh không load được, và được đọc bởi screen reader. Viết alt tốt: mô tả *nội dung* của ảnh, không phải "ảnh của...".
+
+```html
+<!-- Ảnh có caption -->
+<figure>
+  <img src="chart.png" alt="Biểu đồ doanh thu tăng 30% trong Q4 2024">
+  <figcaption>Doanh thu Q4 2024 — tăng 30% so với cùng kỳ năm ngoái</figcaption>
+</figure>
+```
+
+### Lists
+
+```html
+<!-- Danh sách không thứ tự (bullet points) -->
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+</ul>
+
+<!-- Danh sách có thứ tự (numbered) -->
+<ol>
+  <li>Tạo file HTML</li>
+  <li>Thêm CSS</li>
+  <li>Viết JavaScript</li>
+</ol>
+```
+
+### Relative vs Absolute path
+
+Khi link đến file trong cùng project, dùng **relative path** — không hardcode domain:
+
+```
+Cấu trúc project:
+project/
+├── index.html
+├── about.html
+└── assets/
+    ├── style.css
+    └── logo.png
+
+Từ index.html:
+href="about.html"           → file cùng thư mục
+href="assets/style.css"     → vào thư mục con
+href="../images/photo.jpg"  → lên thư mục cha, rồi vào images
+href="/about.html"          → từ root của site (absolute path)
+```
+
+Dùng relative path → khi chuyển site sang domain khác, links vẫn hoạt động.
+
+---
+
+## HTML5 Semantic Structure
+
+Trước HTML5, developer dùng `<div id="header">`, `<div id="nav">`, `<div id="footer">` — trình đọc code không thể biết div nào là gì nếu không đọc id.
+
+HTML5 thêm các thẻ **semantic** — tên thẻ nói lên vai trò của nó:
+
+```html
+<body>
+
+  <header>
+    <!-- Logo, tên site, tagline, navigation chính -->
+  </header>
+
+  <nav>
+    <!-- Các links navigation -->
+    <ul>
+      <li><a href="/">Trang chủ</a></li>
+      <li><a href="/about">Giới thiệu</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Nội dung chính của trang — chỉ có một trên mỗi trang -->
+    <!-- Không đặt header/footer/nav ở đây -->
+
+    <article>
+      <!-- Nội dung tự đứng được, có thể đọc riêng lẻ -->
+      <!-- Bài blog, tin tức, forum post, sản phẩm... -->
+      <h2>Tiêu đề bài viết</h2>
+      <p>Nội dung...</p>
+    </article>
+
+    <section>
+      <!-- Nhóm nội dung có chủ đề, thường có heading -->
+      <!-- Phần "Tính năng", phần "Đánh giá", phần "Liên hệ"... -->
+      <h2>Tính năng nổi bật</h2>
+    </section>
+
+    <aside>
+      <!-- Nội dung phụ, liên quan nhưng không phải nội dung chính -->
+      <!-- Sidebar, "bài viết liên quan", quảng cáo... -->
+    </aside>
+
+  </main>
+
+  <footer>
+    <!-- Copyright, links phụ, địa chỉ, mạng xã hội... -->
+  </footer>
+
+</body>
+```
+
+**Khi nào dùng `<article>` vs `<section>`?**
+
+Câu hỏi: *"Nội dung này có ý nghĩa nếu bị đưa ra ngoài context của trang không?"*
+- Có → `<article>` (bài blog, sản phẩm, review có thể đứng riêng)
+- Không → `<section>` (phần giới thiệu, phần tính năng — chỉ có nghĩa trong context trang đó)
+
+**Một số semantic elements hữu ích khác:**
+
+```html
+<!-- Accordion tích hợp sẵn — không cần JavaScript! -->
+<details>
+  <summary>Câu hỏi thường gặp: Giá là bao nhiêu?</summary>
+  <p>Miễn phí cho sinh viên, 99$/tháng cho doanh nghiệp.</p>
+</details>
+
+<!-- Trích dẫn -->
+<blockquote>
+  <p>"Code is read more often than it is written."</p>
+  <cite>— Guido van Rossum</cite>
+</blockquote>
+```
+
+---
+
+## HTML Tables
+
+Tables dùng để hiển thị **dữ liệu dạng bảng** — có hàng và cột với mối liên hệ rõ ràng. Đừng dùng table để layout trang (đó là việc của CSS Grid/Flexbox).
+
+```html
+<table>
+  <caption>Kết quả thi học kỳ 1</caption>  <!-- Mô tả bảng — tốt cho accessibility -->
+
+  <thead>  <!-- Header của bảng -->
+    <tr>
+      <th scope="col">Họ tên</th>
+      <th scope="col">HTML</th>
+      <th scope="col">CSS</th>
+      <th scope="col">JavaScript</th>
+    </tr>
+  </thead>
+
+  <tbody>  <!-- Dữ liệu của bảng -->
+    <tr>
+      <th scope="row">Nguyễn Văn A</th>  <!-- Header của hàng -->
+      <td>9.0</td>
+      <td>8.5</td>
+      <td>9.5</td>
+    </tr>
+  </tbody>
+
+  <tfoot>  <!-- Footer tổng kết -->
+    <tr>
+      <th>Điểm trung bình</th>
+      <td>8.8</td>
+      <td>8.9</td>
+      <td>9.1</td>
+    </tr>
+  </tfoot>
+</table>
+```
+
+Gộp ô khi cần:
+```html
+<td colspan="2">Ô này chiếm 2 cột</td>
+<td rowspan="3">Ô này chiếm 3 hàng</td>
+```
+
+`scope="col"` và `scope="row"` là cho accessibility — screen reader dùng nó để đọc "hàng 3, cột Điểm HTML: 9.0" thay vì chỉ "9.0".
+
+---
+
+## HTML Forms
+
+Forms là cách user gửi data về server: đăng nhập, đăng ký, tìm kiếm, đặt hàng, gửi comment... Mọi tương tác "ghi" đều qua form.
+
+### Cấu trúc cơ bản
+
+```html
+<form action="/register" method="POST">
+
+  <!-- Label + input phải liên kết qua for/id -->
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="password">Mật khẩu:</label>
+  <input type="password" id="password" name="password" required minlength="8">
+
+  <label for="bio">Giới thiệu:</label>
+  <textarea id="bio" name="bio" rows="4" placeholder="Kể về bản thân..."></textarea>
+
+  <label for="country">Quốc gia:</label>
+  <select id="country" name="country">
+    <option value="">-- Chọn --</option>
+    <option value="VN">Việt Nam</option>
+    <option value="US">Hoa Kỳ</option>
+  </select>
+
+  <!-- Radio — chọn một trong nhiều -->
+  <fieldset>
+    <legend>Giới tính:</legend>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Nam</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Nữ</label>
+  </fieldset>
+
+  <!-- Checkbox — có thể chọn nhiều -->
+  <input type="checkbox" id="agree" name="agree" required>
+  <label for="agree">Tôi đồng ý với điều khoản</label>
+
+  <button type="submit">Đăng ký</button>
+
+</form>
+```
+
+### GET vs POST — Khác nhau ở chỗ nào?
+
+```
+GET:
+URL: /search?q=javascript&page=2
+     ↑ Data nằm lộ trong URL
+
+POST:
+URL: /login
+Body: email=alice@example.com&password=secret123
+      ↑ Data nằm trong HTTP body — không thấy trong URL
+```
+
+| | GET | POST |
+|---|---|---|
+| Data ở đâu? | URL (query string) | HTTP body |
+| Dùng cho | Tìm kiếm, lọc, không nhạy cảm | Đăng nhập, tạo mới, cập nhật |
+| Bookmark được? | Có | Không |
+| Password an toàn? | Không (hiện trong URL, history) | Có |
+
+**Quy tắc**: Password và dữ liệu nhạy cảm **phải** dùng POST. Tìm kiếm và filter dùng GET — tiện lợi vì URL có thể share.
+
+### HTML5 validation tích hợp sẵn
+
+Browser hiện đại có thể validate form mà không cần JavaScript:
+
+```html
+<input type="email" required>                   <!-- Phải là email hợp lệ -->
+<input type="number" min="1" max="100">         <!-- Phải là số trong khoảng -->
+<input type="text" pattern="[0-9]{10}" title="Nhập 10 chữ số">  <!-- Regex -->
+<input type="text" minlength="6" maxlength="20">
+```
+
+> Client-side validation cải thiện UX (feedback ngay lập tức), nhưng **không thể thay thế server-side validation** — user có thể tắt JavaScript hoặc gửi request trực tiếp qua Postman. Luôn validate lại trên server.
+
+---
+
+# PHẦN 2 — CSS
+
+---
+
+## CSS hoạt động như thế nào?
+
+CSS (Cascading Style Sheets) mô tả *cách hiển thị* HTML. Tách CSS ra khỏi HTML mang lại một lợi thế lớn: thay đổi một file CSS → thay đổi giao diện toàn bộ site.
+
+```css
+/* Cú pháp: selector { property: value; } */
+
+h1 {
+  color: #1a1a2e;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+```
+
+**3 cách thêm CSS vào trang:**
+
+```html
+<!-- 1. External (tốt nhất — tái sử dụng được) -->
+<link rel="stylesheet" href="style.css">
+
+<!-- 2. Internal (OK cho trang nhỏ hoặc styles đặc thù) -->
+<style>
+  body { font-family: Arial; }
+</style>
+
+<!-- 3. Inline (tránh dùng — khó maintain, không tái sử dụng được) -->
+<p style="color: red;">Text</p>
+```
+
+---
+
+## Selectors — Chọn đúng element cần style
+
+Selector là phần CSS nói "tôi muốn style *cái này*". Hiểu selectors tốt sẽ tránh được rất nhiều đau khổ sau này.
+
+```css
+/* Element — áp dụng cho tất cả thẻ đó */
+p { line-height: 1.6; }
+
+/* Class — áp dụng cho tất cả element có class đó */
+.card { border-radius: 8px; }
+
+/* ID — áp dụng cho element có id đó (dùng duy nhất trên trang) */
+#main-header { position: sticky; }
+
+/* Kết hợp */
+.card.featured { border: 2px solid gold; }   /* Class card VÀ featured */
+nav a { text-decoration: none; }             /* <a> bên trong <nav> */
+nav > a { color: blue; }                     /* <a> con trực tiếp của <nav> */
+
+/* Pseudo-class — trạng thái của element */
+a:hover { color: blue; }                     /* Khi hover */
+button:disabled { opacity: 0.5; }            /* Khi disabled */
+li:first-child { font-weight: bold; }        /* Con đầu tiên */
+li:nth-child(even) { background: #f5f5f5; } /* Hàng chẵn */
+input:focus { border-color: blue; }          /* Khi đang focus */
+
+/* Pseudo-element — tạo content ảo */
+.quote::before { content: '"'; }
+.required::after { content: ' *'; color: red; }
+```
+
+### Specificity — Tại sao CSS của tôi không hoạt động?
+
+Khi nhiều rules cùng target một element, CSS cần quyết định cái nào thắng. Rule: **specificity** (độ ưu tiên) cao hơn → thắng.
+
+```
+Inline style  → 1000 điểm  (mạnh nhất)
+ID (#id)      → 100 điểm
+Class (.class)→ 10 điểm
+Element (div) → 1 điểm
+
+Ví dụ:
+#header .nav a   → 100+10+1 = 111 điểm
+.nav a           → 10+1     = 11 điểm
+a                → 1 điểm
+```
+
+> **Nguyên tắc thực hành**: Chủ yếu dùng class (`.card`, `.btn-primary`). Tránh ID trong CSS. Không dùng `!important` trừ khi thực sự cần — nó phá vỡ cascade và khó debug.
+
+---
+
+## Box Model — Mọi thứ là một cái hộp
+
+Mỗi HTML element là một "hộp" chữ nhật. Hiểu Box Model là hiểu tại sao spacing trông như vậy và cách tính kích thước.
+
+```
+┌─────────────────────────────────────────────────┐
+│                    margin                       │  Khoảng cách với elements khác
+│   ┌─────────────────────────────────────────┐   │
+│   │                border                   │   │  Đường viền
+│   │   ┌─────────────────────────────────┐   │   │
+│   │   │              padding            │   │   │  Khoảng cách bên trong
+│   │   │   ┌─────────────────────────┐   │   │   │
+│   │   │   │        content          │   │   │   │  Text, ảnh...
+│   │   │   └─────────────────────────┘   │   │   │
+│   │   └─────────────────────────────────┘   │   │
+│   └─────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────┘
+```
+
+```css
+.box {
+  width: 300px;
+  height: 200px;
+
+  padding: 20px;           /* Tất cả 4 phía */
+  padding: 10px 20px;      /* Trên/dưới  Trái/phải */
+
+  border: 2px solid #333;
+  border-radius: 8px;
+
+  margin: 16px;            /* Khoảng cách ngoài */
+  margin: 0 auto;          /* Căn giữa horizontal */
+
+  /* QUAN TRỌNG: luôn đặt cái này */
+  box-sizing: border-box;
+}
+```
+
+**`box-sizing: border-box`** — mặc định CSS tính `width` là *chỉ content*. Với `border-box`, `width` *bao gồm* padding và border. Ví dụ:
+
+```css
+/* Không có border-box: */
+.box { width: 300px; padding: 20px; }
+/* → Kích thước thực = 300 + 40 (padding) = 340px → Vỡ layout! */
+
+/* Có border-box: */
+.box { width: 300px; padding: 20px; box-sizing: border-box; }
+/* → Kích thước thực = đúng 300px */
+```
+
+Luôn thêm vào đầu file CSS:
+```css
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+```
+
+---
+
+## Layout — Flexbox và Grid
+
+Đây là phần nhiều người học cảm thấy khó nhất, nhưng thực ra không quá phức tạp một khi bạn hiểu *khi nào* dùng cái nào.
+
+### Flexbox — Layout 1 chiều
+
+Flexbox dùng khi bạn muốn sắp xếp items theo **một hàng hoặc một cột**.
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;          /* row (mặc định) | column */
+  justify-content: space-between; /* Căn theo chiều chính */
+  align-items: center;          /* Căn theo chiều phụ */
+  gap: 16px;                    /* Khoảng cách giữa items */
+  flex-wrap: wrap;              /* Xuống dòng nếu không đủ chỗ */
+}
+```
+
+`justify-content` điều khiển phân phối không gian theo *chiều chính* (ngang nếu `flex-direction: row`):
+```
+flex-start:   [■ ■ ■          ]
+flex-end:     [          ■ ■ ■]
+center:       [     ■ ■ ■     ]
+space-between:[■     ■     ■  ]
+space-around: [ ■   ■   ■   ■ ]
+```
+
+**Ví dụ thực tế — navigation bar:**
+```css
+nav {
+  display: flex;
+  justify-content: space-between;  /* Logo trái, links phải */
+  align-items: center;
+  padding: 0 24px;
+  height: 64px;
+}
+```
+
+**Ví dụ thực tế — card grid:**
+```css
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.card {
+  flex: 1 1 280px;  /* Grow, shrink, min-width 280px */
+}
+```
+
+### CSS Grid — Layout 2 chiều
+
+Grid dùng khi bạn cần bố cục **hàng VÀ cột** cùng lúc — tức là layout tổng thể của trang.
+
+```css
+.page-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;   /* Sidebar cố định, main linh hoạt */
+  grid-template-rows: 64px 1fr 80px;  /* Header, content, footer */
+  min-height: 100vh;
+}
+
+.header  { grid-column: 1 / -1; }  /* Chiếm toàn bộ hàng */
+.sidebar { grid-column: 1 / 2; }
+.main    { grid-column: 2 / -1; }
+.footer  { grid-column: 1 / -1; }
+```
+
+**Card grid responsive với Grid:**
+```css
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+/* → Tự động thêm/bớt cột tùy theo chiều rộng màn hình. Không cần media query! */
+```
+
+### Khi nào dùng Flexbox vs Grid?
+
+```
+Flexbox: Bạn có một danh sách items và muốn sắp xếp chúng
+         → Navigation, button group, list of cards trong một hàng
+
+Grid:    Bạn đang thiết kế bố cục tổng thể của trang
+         → Header/sidebar/main/footer, dashboard, photo gallery
+```
+
+Trong thực tế: Grid cho layout lớn, Flexbox cho các components bên trong.
+
+---
+
+## Responsive Design
+
+Website cần hoạt động tốt trên mọi kích thước màn hình — từ điện thoại 360px đến màn hình 4K.
+
+### Media Queries
+
+```css
+/* Mobile-first: viết style cho mobile trước */
+.grid {
+  display: block;  /* Mobile: xếp thành 1 cột */
+}
+
+/* Khi màn hình >= 768px (tablet) */
+@media (min-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Khi màn hình >= 1024px (desktop) */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+```
+
+**Mobile-first** (min-width) là approach được khuyến nghị: bắt đầu từ mobile nhỏ, thêm dần khi màn hình lớn hơn. Logic thuận chiều hơn max-width.
+
+### Viewport meta tag
+
+Đây là thứ **không thể thiếu** trong mọi trang responsive:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+Nếu không có dòng này, mobile browser sẽ zoom out và hiển thị trang như desktop thu nhỏ.
+
+---
+
+## CSS Variables — Giá trị có thể tái sử dụng
+
+Khi cùng một màu xuất hiện ở 30 chỗ, nếu cần đổi màu bạn phải sửa 30 nơi. CSS Variables giải quyết vấn đề này.
+
+```css
+/* Khai báo ở :root — scope toàn trang */
+:root {
+  --color-primary: #2563eb;
+  --color-text: #1f2937;
+  --color-bg: #ffffff;
+
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+
+  --radius: 8px;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+/* Sử dụng */
+.button {
+  background: var(--color-primary);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius);
+}
+
+/* Dark mode — chỉ cần override variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #f9fafb;
+    --color-bg: #111827;
+  }
+}
+```
+
+---
+
+## Những kỹ thuật hay dùng
+
+### Styling table
+
+```css
+table { width: 100%; border-collapse: collapse; }
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th { background: #f9fafb; font-weight: 600; }
+
+tr:hover { background: #f0f9ff; }          /* Hover row */
+tr:nth-child(even) { background: #fafafa; } /* Zebra stripe */
+```
+
+### Styling form inputs
+
+```css
+input, textarea, select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+button {
+  padding: 10px 20px;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover { background: #1d4ed8; }
+button:active { transform: scale(0.98); }
+```
+
+### Transitions và Animations
+
+```css
+/* Transition — hiệu ứng khi property thay đổi */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Keyframe animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert {
+  animation: fadeInUp 0.3s ease forwards;
+}
+```
+
+---
+
+## Tổng kết
+
+```
+HTML:
+  Semantic markup    → Dùng đúng thẻ cho đúng nội dung
+  Document structure → DOCTYPE, head, body
+  Heading hierarchy  → h1→h2→h3, không bỏ cấp
+  Semantic structure → header, main, nav, article, section, footer
+  Tables             → Chỉ cho dữ liệu dạng bảng, không layout
+  Forms              → GET/POST, label+input, HTML5 validation
+
+CSS:
+  Selectors          → Class > ID > element, tránh inline style
+  Specificity        → Hiểu để debug khi style không hoạt động
+  Box Model          → Content, padding, border, margin; dùng border-box
+  Flexbox            → Layout 1 chiều, navigation, card row
+  Grid               → Layout 2 chiều, page layout, gallery
+  Responsive         → Mobile-first, media queries, viewport meta
+  Variables          → --var-name, tái sử dụng, dễ theme
+```
+
+Tiếp theo: **JavaScript** — ngôn ngữ làm cho tất cả những thứ trên trở nên tương tác.
