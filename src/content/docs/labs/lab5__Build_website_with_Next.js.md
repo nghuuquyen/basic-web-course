@@ -8,6 +8,31 @@ Bốn lab trước cho bạn công cụ: Git để quản lý code, Sass để v
 
 ---
 
+## Về tài liệu này
+
+Bài thực hành gốc được **Next.js cung cấp chính thức** dưới dạng bài học tương tác — sinh viên có thể học trực tiếp trên đó:
+
+- **Phần 1:** [https://nextjs.org/learn/pages-router](https://nextjs.org/learn/pages-router)
+- **Phần 2:** [https://nextjs.org/learn/dashboard-app](https://nextjs.org/learn/dashboard-app)
+
+Tài liệu Lab 5 này là bản **tổng hợp và dịch sang Tiếng Việt**, nhằm hỗ trợ thêm cho quá trình học. Khuyến khích sinh viên đọc song song cả hai nguồn — tài liệu gốc có các bài tập tương tác và giải thích chuẩn xác nhất, còn tài liệu này giúp nắm nhanh ý chính và có ngữ cảnh phù hợp hơn với chương trình học.
+
+---
+
+## Bức tranh lớn hơn
+
+Lab 5 là nơi bạn hiện thực hóa một ứng dụng web thực sự — nhưng code chỉ là một phần của quá trình. Để hiểu ngữ cảnh đầy đủ, hãy đọc thêm hai chủ đề sau song song với Lab này:
+
+**[Topic 2 — Các Giai Đoạn Xây Dựng Ứng Dụng Web](/basic-web-course/deep-dives/topic2__stages-to-build-an-web-application/)**
+
+Từ thu thập yêu cầu, lên kế hoạch, thiết kế, lập trình, kiểm thử, đến bảo trì — Lab 5 chính là giai đoạn "Lập trình" trong quy trình thực tế. Topic 2 giúp bạn hiểu code của mình nằm ở đâu trong bức tranh lớn, cách làm việc với client, ước tính thời gian và chi phí, và những giai đoạn nào xảy ra trước và sau khi bạn gõ dòng code đầu tiên.
+
+**[Topic 3 — SEO và Web Performance](/basic-web-course/deep-dives/topic3__seo-and-web-performance/)**
+
+Next.js được chọn một phần vì nó giải quyết trực tiếp hai vấn đề lớn của React thuần: SEO kém và tốc độ load chậm. Topic 3 đào sâu vào cơ chế hoạt động — tại sao SSR/SSG quan trọng với Google, Core Web Vitals là gì và cách đo, cách tối ưu ảnh và fonts, và cách monitor sau khi deploy. Đây là kiến thức bạn sẽ dùng ngay khi làm Phần 2 của Lab.
+
+---
+
 ## Tại sao Next.js?
 
 Khi học React thuần, bạn xây Single Page Application (SPA): browser tải một file HTML gần như trống, sau đó JavaScript chạy và render nội dung. Cách này có giới hạn rõ rệt:

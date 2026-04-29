@@ -10,6 +10,16 @@ Phần 1 dạy bạn cách xây trang tĩnh với SSG. Phần này đi xa hơn: 
 
 ---
 
+## Về tài liệu này
+
+Bài thực hành gốc được **Next.js cung cấp chính thức** tại:
+
+**[https://nextjs.org/learn/dashboard-app](https://nextjs.org/learn/dashboard-app)**
+
+Tài liệu này là bản **tổng hợp và dịch sang Tiếng Việt** để hỗ trợ thêm cho quá trình học. Khuyến khích đọc song song cả hai nguồn — tài liệu gốc có các bài tập tương tác với code sandbox, còn tài liệu này giúp nắm nhanh ý chính bằng tiếng Việt và cung cấp ngữ cảnh bổ sung.
+
+---
+
 ## Mục Lục
 
 1. [Tối ưu Font và Hình Ảnh](#1-tối-ưu-font-và-hình-ảnh)

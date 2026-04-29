@@ -10,6 +10,16 @@ Phần này dùng **Pages Router** — kiến trúc gốc của Next.js — đ�
 
 ---
 
+## Về tài liệu này
+
+Bài thực hành gốc được **Next.js cung cấp chính thức** tại:
+
+**[https://nextjs.org/learn/pages-router](https://nextjs.org/learn/pages-router)**
+
+Tài liệu này là bản **tổng hợp và dịch sang Tiếng Việt** để hỗ trợ thêm cho quá trình học. Khuyến khích đọc song song cả hai nguồn — tài liệu gốc có các bài tập tương tác và code sandbox ngay trong trình duyệt, còn tài liệu này giúp nắm nhanh ý chính bằng tiếng Việt.
+
+---
+
 ## Mục Lục
 
 1. [Khởi tạo project](#1-khởi-tạo-project)
