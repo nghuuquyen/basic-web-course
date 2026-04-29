@@ -1,0 +1,80 @@
+site_name: Web Basic — Tài Liệu Khoá Học
+site_description: Tài liệu khoá học Web Design and Development — Nguyễn Hữu Quyền
+site_author: Nguyễn Hữu Quyền
+site_url: https://nghuuquyen.github.io/basic-web-course/
+
+repo_name: nghuuquyen/basic-web-course
+repo_url: https://github.com/nghuuquyen/basic-web-course
+
+docs_dir: .
+site_dir: site
+
+theme:
+  name: material
+  language: vi
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+plugins:
+  - search:
+      lang: vi
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Trang chủ: README.md
+  - Lịch học: schedule.md
+  - Modules:
+    - "Module 0: Giới thiệu": modules/module0__Introduction_to_Web_Development.md
+    - "Module 1: How the Web Works": modules/module1__How_the_Web_Works.md
+    - "Module 2: HTML & CSS": modules/module2__HTML_and_CSS.md
+    - "Module 3: JavaScript": modules/module3__JavaScript.md
+    - "Module 4: Server-side Programming": modules/module4__introduction_to_server_side_programming.md
+  - Labs:
+    - "Lab 1: Git & Version Control": labs/lab1__Git_Distributed_Version_Control.md
+    - "Lab 2: CSS Processors": labs/lab2__CSS_Processors.md
+    - "Lab 3: Tailwind CSS": labs/lab3__Tailwind_CSS.md
+    - "Lab 4: Layout & Responsive Web": labs/lab4__Layout_and_Responsive_Web.md
+    - "Lab 5: Build website with Next.js": labs/lab5__Build_website_with_Next.js.md
+    - "Lab 5 (Part 1): Next.js Pages Router": "labs/lab5__Part 1 Next.js Pages Router – Static Blog with SSG.md"
+    - "Lab 5 (Part 2): Next.js App Router": "labs/lab5__Part 2 Next.js App Router – Dynamic App with Supabase.md"
+  - Exercises:
+    - "Ex 1: Online Course Registration Form": exercises/ex1__online_course_registration_form.md
+    - "Ex 2: Student Score Table": exercises/ex2__student_score_table.md
+    - "Ex 3: Product Introduction Page": exercises/ex3__product_introduction_page.md
+  - Deep Dives:
+    - "Async JavaScript": deep-dives/topic1__Asynchronous_Coding_with_Javascript.md
+    - "Stages to Build a Web App": deep-dives/topic2__Stages_to_Build_An_Web_Application.md
+    - "SEO & Web Performance": deep-dives/topic3__SEO_and_Web_Performance.md
+  - Final Project: final-project-brief.md

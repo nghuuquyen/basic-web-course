@@ -1,3 +1,5 @@
 */*.DS_SORE
 */.DS_STORE
 */.DS_Store
+site/
+.cache/
