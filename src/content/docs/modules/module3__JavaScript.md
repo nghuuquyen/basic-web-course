@@ -2,8 +2,6 @@
 title: "Module 3 — JavaScript"
 ---
 
-# Module 3 — JavaScript
-
 HTML tạo cấu trúc, CSS tạo giao diện — nhưng cả hai đều *tĩnh*. JavaScript là ngôn ngữ làm cho trang web trở nên sống động: phản ứng với click của người dùng, cập nhật nội dung mà không reload trang, gọi API, validate form... Đây cũng là ngôn ngữ duy nhất chạy được trong browser, và ngày nay còn chạy được trên server (Node.js), mobile (React Native), desktop (Electron).
 
 Một điều quan trọng trước khi bắt đầu: **JavaScript là ngôn ngữ có nhiều cạm bẫy hơn hầu hết ngôn ngữ khác**. Module này không chỉ dạy cú pháp — nó giải thích tại sao những cạm bẫy đó tồn tại để bạn tránh được chúng.

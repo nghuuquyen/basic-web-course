@@ -2,8 +2,6 @@
 title: "Lab 1 — Git: Quản Lý Source Code"
 ---
 
-# Lab 1 — Git: Quản Lý Source Code
-
 Bạn đã bao giờ lỡ tay xoá một file quan trọng, hoặc muốn quay lại bản code trước khi sửa một tính năng nhưng không biết làm sao? Version control giải quyết đúng vấn đề đó. Git là tool mà mọi developer ngày nay đều phải biết — không phải "nên biết", mà là **phải biết**.
 
 ---

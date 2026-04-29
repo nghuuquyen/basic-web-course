@@ -2,8 +2,6 @@
 title: "Module 1 — Cơ Chế Hoạt Động Của Web"
 ---
 
-# Module 1 — Cơ Chế Hoạt Động Của Web
-
 Bạn đã biết: web là Client hỏi, Server trả lời. Nhưng *thực sự* điều gì xảy ra giữa lúc bạn nhấn Enter và lúc trang web hiện ra? Module này giải thích từng bước trong cái hành trình đó — không phải để bạn thuộc lòng, mà để khi gặp sự cố (timeout, 404, trang không load...), bạn biết cần nhìn vào đâu.
 
 ---

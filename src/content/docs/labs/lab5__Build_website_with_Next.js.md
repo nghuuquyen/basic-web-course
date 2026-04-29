@@ -2,8 +2,6 @@
 title: "Lab 5 — Xây Dựng Website với Next.js"
 ---
 
-# Lab 5 — Xây Dựng Website với Next.js
-
 Bốn lab trước cho bạn công cụ: Git để quản lý code, Sass để viết CSS tốt hơn, Tailwind để xây giao diện nhanh, responsive design để site hoạt động trên mọi thiết bị. Lab này là nơi ghép tất cả lại — bạn sẽ xây dựng một ứng dụng web thực sự, hoàn chỉnh từ giao diện đến database.
 
 ---

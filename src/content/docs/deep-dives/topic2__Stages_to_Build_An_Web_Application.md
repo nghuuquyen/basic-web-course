@@ -2,8 +2,6 @@
 title: "Topic 2 — Các Giai Đoạn Xây Dựng Ứng Dụng Web"
 ---
 
-# Topic 2 — Các Giai Đoạn Xây Dựng Ứng Dụng Web
-
 ---
 
 ## Phần 1 — Nền Tảng: 6 Giai Đoạn Phát Triển Web

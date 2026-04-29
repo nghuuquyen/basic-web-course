@@ -2,8 +2,6 @@
 title: "Module 0 — Giới Thiệu Lập Trình Web"
 ---
 
-# Module 0 — Giới Thiệu Lập Trình Web
-
 Trước khi viết dòng code đầu tiên, bạn cần có một bức tranh toàn cảnh: web là gì, nó hoạt động theo nguyên lý nào, và bạn sẽ đứng ở vị trí nào trong cái hệ sinh thái đó. Module này không có code — nhưng nó là nền tảng để mọi thứ sau này có ý nghĩa thay vì chỉ là những thứ bạn copy-paste mà không hiểu tại sao.
 
 ---

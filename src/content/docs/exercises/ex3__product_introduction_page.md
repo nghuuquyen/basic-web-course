@@ -2,8 +2,6 @@
 title: "Ex3 — Product Introduction Page"
 ---
 
-# Ex3 — Product Introduction Page
-
 ## Mục Tiêu
 
 Bài tập này giúp bạn thực hành xây dựng layout trang web hoàn chỉnh — từ header đến footer — bằng semantic HTML và Flexbox.

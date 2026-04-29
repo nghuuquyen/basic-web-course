@@ -2,8 +2,6 @@
 title: "Phần 1 — Xây Blog Tĩnh với Next.js Pages Router"
 ---
 
-# Phần 1 — Xây Blog Tĩnh với Next.js Pages Router
-
 Khi làm web với React thuần, mọi thứ đều được render trên trình duyệt — browser nhận HTML gần như trống, tải JavaScript, chạy React rồi mới hiển thị nội dung. Với blog, điều này dẫn đến trang tải chậm lần đầu và SEO kém (Google crawl được HTML trống, không thấy nội dung). Next.js giải quyết bằng cách render HTML **trước khi gửi về browser**.
 
 Phần này dùng **Pages Router** — kiến trúc gốc của Next.js — để xây blog tĩnh từ file Markdown.

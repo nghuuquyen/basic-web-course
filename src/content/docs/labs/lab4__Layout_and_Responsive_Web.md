@@ -2,8 +2,6 @@
 title: "Lab 4 — Layout & Responsive Web Design"
 ---
 
-# Lab 4 — Layout & Responsive Web Design
-
 Ngày nay, người dùng vào web từ mọi loại thiết bị — điện thoại 320px, tablet 768px, màn hình 4K 3840px. Một website tốt không phải là website "trông đẹp trên màn hình của designer" mà là website **hoạt động tốt trên mọi màn hình**. Đó là bài toán responsive design.
 
 ---

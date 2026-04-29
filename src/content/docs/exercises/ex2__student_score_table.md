@@ -2,8 +2,6 @@
 title: "Ex2 — Student Score Table"
 ---
 
-# Ex2 — Student Score Table
-
 ## Mục Tiêu
 
 Bài tập này giúp bạn thực hành xây dựng và style table HTML — một component bị nhiều người làm sai hơn tưởng vì HTML table có cú pháp khá đặc thù.

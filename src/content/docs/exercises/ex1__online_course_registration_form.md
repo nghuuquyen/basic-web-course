@@ -2,8 +2,6 @@
 title: "Ex1 — Online Course Registration Form"
 ---
 
-# Ex1 — Online Course Registration Form
-
 ## Mục Tiêu
 
 Bài tập này giúp bạn thực hành xây dựng form HTML đầy đủ và style nó bằng CSS — một trong những component phổ biến nhất trong bất kỳ web application nào.

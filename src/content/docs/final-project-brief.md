@@ -2,8 +2,6 @@
 title: "Final Project Brief — Web Design and Development"
 ---
 
-# Final Project Brief — Web Design and Development
-
 **Hình thức:** Bài tập nhóm  
 **Trọng số:** 50% điểm tổng kết  
 **Thời gian thực hiện:** 3 tuần  

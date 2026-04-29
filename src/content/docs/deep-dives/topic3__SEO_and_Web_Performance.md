@@ -2,8 +2,6 @@
 title: "Topic 3 — SEO và Web Performance"
 ---
 
-# Topic 3 — SEO và Web Performance
-
 Bạn vừa deploy website lên production. Đẹp, chạy tốt, tất cả tính năng hoạt động. Bạn chia sẻ link cho bạn bè và mọi người khen.
 
 Rồi một tuần trôi qua. Một tháng. Traffic từ Google vẫn là 0.

@@ -2,8 +2,6 @@
 title: "Module 4 — Lập Trình Server-Side và Dynamic Web"
 ---
 
-# Module 4 — Lập Trình Server-Side và Dynamic Web
-
 Bốn module trước cho bạn nền tảng về giao tiếp web, HTML, CSS, và JavaScript phía client. Module này chuyển sang **phía server** — nơi data được lưu trữ, business logic được thực thi, và bảo mật được đảm bảo. Đây là kiến thức cần nắm trước (hoặc song song) khi học Next.js.
 
 ---
