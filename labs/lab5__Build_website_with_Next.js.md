@@ -39,7 +39,7 @@ Lab này được chia thành hai phần độc lập, mỗi phần dạy một 
 
 ### Phần 1 — Pages Router: Static Blog với SSG
 
-**[→ Xem hướng dẫn chi tiết](./Lab5__Part%201%20Next.js%20Pages%20Router%20–%20Static%20Blog%20with%20SSG.md)**
+**[→ Xem hướng dẫn chi tiết](./lab5__Part%201%20Next.js%20Pages%20Router%20–%20Static%20Blog%20with%20SSG.md)**
 
 Bạn sẽ xây một blog tĩnh: bài viết lưu dưới dạng Markdown, Next.js đọc file và generate ra trang HTML lúc build. Không cần database, deploy được lên GitHub Pages miễn phí.
 
@@ -60,7 +60,7 @@ Bạn sẽ xây một blog tĩnh: bài viết lưu dưới dạng Markdown, Next
 
 ### Phần 2 — App Router: Dynamic App với Supabase
 
-**[→ Xem hướng dẫn chi tiết](./Lab5__Part%202%20Next.js%20App%20Router%20–%20Dynamic%20App%20with%20Supabase.md)**
+**[→ Xem hướng dẫn chi tiết](./lab5__Part%202%20Next.js%20App%20Router%20–%20Dynamic%20App%20with%20Supabase.md)**
 
 Bạn sẽ xây một ứng dụng dashboard quản lý hoá đơn: kết nối PostgreSQL qua Supabase, CRUD operations, authentication, search và pagination. Đây là kiến trúc của ứng dụng production thực tế.
 
