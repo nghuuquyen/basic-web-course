@@ -7,7 +7,7 @@ import remarkBasePath from './src/plugins/remark-base-path.mjs';
 // GitHub Pages (project repo): set SITE_BASE=/basic-web-course
 // Vercel / root deploy: leave unset (defaults to '/basic-web-course' for now,
 //   override with SITE_BASE='' or SITE_BASE=/ when deploying to root)
-const siteBase = process.env.SITE_BASE ?? '/basic-web-course';
+const siteBase = process.env.SITE_BASE ?? '/';
 
 export default defineConfig({
   site: 'https://nghuuquyen.github.io',
