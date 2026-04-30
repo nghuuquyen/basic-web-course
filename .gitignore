@@ -4,3 +4,6 @@
 dist/
 node_modules/
 .astro/
+
+# Misc files that are not needed in the repo
+misc/*
