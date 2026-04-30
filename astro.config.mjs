@@ -10,7 +10,7 @@ import remarkBasePath from './src/plugins/remark-base-path.mjs';
 const siteBase = process.env.SITE_BASE ?? '/';
 
 export default defineConfig({
-  site: 'https://nghuuquyen.github.io',
+  site: 'https://basic.web-programming.io.vn',
   base: siteBase,
   markdown: {
     remarkPlugins: [[remarkBasePath, { base: siteBase }]],
