@@ -16,7 +16,7 @@
 
 ---
 
-## Sprint 1 — Planning & Setup
+## Task 1 — Planning & Setup
 
 **Tuần:** *(VD: Tuần 1, ngày DD/MM – DD/MM)*
 
@@ -36,7 +36,7 @@
 
 ---
 
-## Sprint 2 — UI Implementation
+## Task 2 — UI Implementation
 
 **Tuần:** *(VD: Tuần 1–2, ngày DD/MM – DD/MM)*
 
@@ -56,7 +56,7 @@
 
 ---
 
-## Sprint 3 — Database Integration
+## Task 3 — Database Integration
 
 **Tuần:** *(VD: Tuần 2, ngày DD/MM – DD/MM)*
 
@@ -76,7 +76,7 @@
 
 ---
 
-## Sprint 4 — Optimization
+## Task 4 — Optimization
 
 **Tuần:** *(VD: Tuần 2–3, ngày DD/MM – DD/MM)*
 
@@ -96,7 +96,7 @@
 
 ---
 
-## Sprint 5 — Peer Review
+## Task 5 — Peer Review
 
 **Tuần:** *(VD: Tuần 3, ngày DD/MM – DD/MM)*
 

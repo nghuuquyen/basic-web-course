@@ -125,11 +125,11 @@ cp .env.example .env
 
 - **Repository link:** *(link)*
 
-### (e) GitHub Workflow & Commit Conventions
+### (e) Quy trình làm việc trên GitHub
 
 > Mô tả cách nhóm áp dụng commit conventions và Pull Request workflow.
 
-*(Mô tả ngắn quy trình: commit message format, cách dùng PR, cách reference issues)*
+*(Mô tả ngắn quy trình: định dạng commit message, cách dùng PR, cách reference issues)*
 
 **Ví dụ commit messages tiêu biểu của nhóm:**
 
@@ -145,9 +145,9 @@ docs: update README with setup instructions
 
 ## Task 2 — Implement User Interface
 
-### (a) Website nhiều trang
+### (a) Các trang đã xây dựng
 
-> Liệt kê các trang đã xây dựng và mô tả ngắn chức năng mỗi trang.
+> Liệt kê tất cả các trang của website và mô tả ngắn chức năng từng trang.
 
 | Trang | URL / Route | Mô tả | Người thực hiện |
 |---|---|---|---|
@@ -158,19 +158,19 @@ docs: update README with setup instructions
 
 *(Chèn ảnh chụp màn hình các trang chính)*
 
-### (b) Tailwind CSS
+### (b) Sử dụng Tailwind CSS
 
-> Mô tả cách nhóm tích hợp và sử dụng Tailwind CSS.
+> Mô tả cách nhóm tích hợp và sử dụng Tailwind CSS trong dự án.
 
-*(Mô tả ngắn: cách cài đặt, các component/layout chính dùng Tailwind)*
+*(Mô tả ngắn: cách cài đặt, các component và layout chính dùng Tailwind)*
 
 **Ví dụ utility classes đặc trưng nhóm đã dùng:**
 
 *(Ví dụ: responsive grid, custom color scheme, dark mode...)*
 
-### (c) JavaScript Interactivity
+### (c) Các tính năng tương tác
 
-> Liệt kê các tính năng interactive đã implement.
+> Liệt kê các tính năng tương tác đã xây dựng bằng JavaScript.
 
 | Tính năng | Mô tả | File / Component | Người thực hiện |
 |---|---|---|---|
@@ -180,9 +180,9 @@ docs: update README with setup instructions
 
 *(Chèn ảnh chụp hoặc mô tả cách test các interactive element)*
 
-### (d) Responsive Design
+### (d) Giao diện trên nhiều thiết bị
 
-> Cung cấp bằng chứng website hoạt động đúng trên các thiết bị.
+> Cung cấp bằng chứng website hiển thị đúng trên các kích thước màn hình khác nhau.
 
 - [ ] Mobile (< 768px)
 - [ ] Tablet (768px – 1024px)
@@ -194,7 +194,7 @@ docs: update README with setup instructions
 
 ## Task 3 — Database Integration & Dynamic Content
 
-### (a) Database Schema
+### (a) Thiết kế cơ sở dữ liệu
 
 > Đính kèm ER diagram và mô tả các bảng chính.
 
@@ -210,23 +210,23 @@ docs: update README with setup instructions
 
 *(Chèn ảnh ER diagram)*
 
-### (b) Tích hợp Database
+### (b) Kết nối cơ sở dữ liệu
 
-> Mô tả stack server-side và cách kết nối database.
+> Mô tả công nghệ server-side và cách ứng dụng kết nối với database.
 
-- **Server-side technology:** *(Node.js / PHP / ...)*
-- **Connection method:** *(RESTful API / Template engine / ...)*
-- **CRUD operations đã implement:**
+- **Công nghệ server-side:** *(Node.js / PHP / ...)*
+- **Cách kết nối:** *(RESTful API / Template engine / ...)*
+- **Các thao tác CRUD đã implement:**
   - [ ] Create
   - [ ] Read
   - [ ] Update
   - [ ] Delete
 
-*(Mô tả ngắn kiến trúc kết nối frontend — backend — database)*
+*(Mô tả ngắn kiến trúc kết nối: frontend — backend — database)*
 
-### (c) Dynamic Pages
+### (c) Các trang hiển thị dữ liệu động
 
-> Liệt kê các trang lấy và hiển thị dữ liệu từ database.
+> Liệt kê các trang lấy dữ liệu từ database và hiển thị cho người dùng.
 
 | Trang | Dữ liệu hiển thị | Query / Endpoint | Người thực hiện |
 |---|---|---|---|
@@ -239,9 +239,9 @@ docs: update README with setup instructions
 
 ## Task 4 — Optimization
 
-### (a) Lighthouse Audit
+### (a) Kiểm tra hiệu năng với Lighthouse
 
-> Đính kèm kết quả Lighthouse trước và sau khi tối ưu.
+> Chạy Lighthouse trước và sau khi tối ưu, đính kèm kết quả cả hai lần.
 
 **Kết quả trước khi tối ưu:**
 
@@ -272,9 +272,9 @@ docs: update README with setup instructions
 
 *(Chèn ảnh chụp màn hình Lighthouse — sau)*
 
-### (b) Tracking & Logging Tools
+### (b) Theo dõi lỗi và hành vi người dùng
 
-> Mô tả cách setup và cấu hình các công cụ monitoring.
+> Mô tả cách nhóm đã cài đặt và cấu hình các công cụ monitoring.
 
 **Google Analytics:**
 - [ ] Đã tích hợp
@@ -295,9 +295,9 @@ docs: update README with setup instructions
 
 ## Task 5 — UI/UX Peer Review & Evaluation
 
-### (a) Review nhóm khác
+### (a) Feedback cho các nhóm khác
 
-> Cung cấp nội dung feedback đã gửi cho các nhóm khác.
+> Trình bày nội dung feedback nhóm đã gửi cho các nhóm được review.
 
 **Nhóm được review #1:**
 
@@ -321,9 +321,9 @@ docs: update README with setup instructions
 | Aesthetics | *(nhận xét)* | *(gợi ý)* |
 | User-Friendliness | *(nhận xét)* | *(gợi ý)* |
 
-### (b) Implement feedback nhận được
+### (b) Xử lý feedback từ các nhóm khác
 
-> Tóm tắt feedback nhóm nhận được và quyết định của nhóm với từng ý kiến.
+> Tóm tắt feedback nhóm nhận được và quyết định của nhóm đối với từng ý kiến.
 
 | Feedback | Nguồn (nhóm nào) | Quyết định | Lý do / Commit |
 |---|---|---|---|
