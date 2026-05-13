@@ -75,7 +75,14 @@ export default defineConfig({
             { label: 'SEO & Web Performance', link: '/deep-dives/topic3__seo_and_web_performance' },
           ],
         },
-        { label: 'Final Project', link: '/final-project-brief' },
+        {
+          label: 'Final Project',
+          items: [
+            { label: 'Project Brief', link: '/final-project-brief' },
+            { label: 'Report Template', link: '/final-project-report-template' },
+            { label: 'Self-Report Template', link: '/final-project-self-report-template' },
+          ],
+        },
       ],
     }),
   ],

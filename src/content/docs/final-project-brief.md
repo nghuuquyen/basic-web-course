@@ -190,12 +190,7 @@ Review tập trung vào ba khía cạnh:
 - Có organized branches và commit history rõ ràng
 - Mỗi thành viên phải có commits đều đặn trong suốt project
 
-**2. README.md trong repository** — phải bao gồm:
-- Hướng dẫn cài đặt và chạy ứng dụng
-- Tổng quan project và các công nghệ sử dụng
-- Danh sách tính năng kèm screenshots
-- Database diagram (ERD)
-- Thông tin bổ sung cần thiết
+**2. README.md trong repository** — nhóm điền [Report Template](/final-project-report-template) rồi dùng làm README.md của repo
 
 **3. Video demo trên YouTube**
 - Không quá 10 phút
@@ -203,7 +198,7 @@ Review tập trung vào ba khía cạnh:
 - Upload dạng unlisted hoặc public (không để private)
 - Demo đủ tất cả các yêu cầu của từng task — không cần show code, chỉ cần show ứng dụng hoạt động
 
-**4. Self-Report cho cả 5 sprints**
+**4. Self-Report cho cả 5 sprints** — mỗi thành viên điền theo [Self-Report Template](/final-project-self-report-template) và commit vào `docs/self-reports/self-report-[MSSV].md`
 - Mỗi thành viên phải nộp riêng
 - Nộp trễ hoặc thiếu → trừ 10% điểm nhóm
 - Nếu đóng góp không rõ ràng hoặc không phù hợp, có thể nhận điểm thấp hơn các thành viên khác
