@@ -72,13 +72,6 @@ git branch -a
 gh pr list --state all --json number,title,author,createdAt,mergedAt,body 2>/dev/null || echo "gh CLI not available"
 ```
 
-Sau khi đã thu thập đủ dữ liệu git, **xóa folder `.git`** để tránh repo bị nhận diện là sub-repo:
-
-```bash
-rm -rf "$GRADING_DIR/.git"
-echo "Đã xóa .git — thư mục không còn là sub-repo."
-```
-
 ---
 
 ## Bước 3 — Đọc tất cả Self-Reports
