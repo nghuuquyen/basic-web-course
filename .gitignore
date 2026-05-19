@@ -7,3 +7,6 @@ node_modules/
 
 # Misc files that are not needed in the repo
 misc/*
+
+# Student project grading workspace (local only)
+grading/
