@@ -14,19 +14,27 @@ Bạn là giảng viên chấm điểm môn Web Design & Development. Nhiệm v�
 
 ### Bước 1 — Clone repository vào thư mục grading/
 
-Clone repo vào thư mục `grading/` của project hiện tại (không dùng /tmp):
+Clone repo vào thư mục `grading/` của project hiện tại (không dùng /tmp).
+
+**Nếu folder đã tồn tại**, thêm suffix thời gian dạng `YYYY-MM-DD_HH-MM` để phân biệt (VD: `ten-repo_2026-05-19_14-30`):
 
 ```bash
 REPO_URL="$ARGUMENTS"
 REPO_NAME=$(basename "$REPO_URL" .git)
 GRADING_DIR="./grading/$REPO_NAME"
 
+if [ -d "$GRADING_DIR" ]; then
+  TIME_SUFFIX=$(date "+%Y-%m-%d_%H-%M")
+  GRADING_DIR="./grading/${REPO_NAME}_${TIME_SUFFIX}"
+  echo "Folder đã tồn tại, dùng thư mục mới: $GRADING_DIR"
+fi
+
 mkdir -p "$GRADING_DIR"
 git clone "$REPO_URL" "$GRADING_DIR"
 cd "$GRADING_DIR"
 ```
 
-> Báo cáo chấm điểm cuối cùng sẽ được lưu tại `grading/<repo-name>/GRADE_REPORT.md`.
+> Báo cáo chấm điểm cuối cùng sẽ được lưu tại `$GRADING_DIR/GRADE_REPORT.md`.
 
 Sau khi clone, khám phá cấu trúc:
 - Đọc `README.md` — đây là project report của nhóm
@@ -37,7 +45,7 @@ Sau khi clone, khám phá cấu trúc:
 
 ### Bước 2 — Phân tích Git History toàn diện
 
-Chạy từ trong `$GRADING_DIR`:
+Chạy từ trong `$GRADING_DIR` **trước khi xóa `.git`**:
 
 ```bash
 # Toàn bộ commit log (author, date, message)
@@ -59,6 +67,13 @@ git branch -a
 gh pr list --state all --json number,title,author,createdAt,mergedAt,body 2>/dev/null || echo "gh CLI not available"
 ```
 
+Sau khi đã thu thập đủ dữ liệu git, **xóa folder `.git`** để tránh repo bị nhận diện là sub-repo:
+
+```bash
+rm -rf "$GRADING_DIR/.git"
+echo "Đã xóa .git — thư mục không còn là sub-repo."
+```
+
 Đọc và phân tích kỹ toàn bộ output.
 
 ---
@@ -69,6 +84,9 @@ gh pr list --state all --json number,title,author,createdAt,mergedAt,body 2>/dev
 - Tên, MSSV, vai trò
 - Với mỗi Task (1–5): công việc khai báo, link commit/PR/issue làm bằng chứng, khó khăn, điểm tự đánh giá
 - Tổng kết đóng góp và % đóng góp tự ước tính
+- **Khai báo sử dụng AI:** danh sách tính năng/đoạn code nào được hỗ trợ bởi AI (Copilot, ChatGPT, Claude, v.v.)
+
+> **Chính sách AI:** Sử dụng AI để hỗ trợ viết code **không bị coi là gian lận học thuật**. Tuy nhiên, sinh viên **bắt buộc** phải: (1) khai báo rõ những phần code nào được viết với sự hỗ trợ của AI trong self-report, và (2) hiểu được cách code đó vận hành — điều này sẽ được kiểm tra qua câu hỏi phỏng vấn. Không khai báo AI nhưng code có dấu hiệu AI-generated (style không nhất quán, comment bằng tiếng Anh hoàn hảo không khớp trình độ, v.v.) là bất thường cần ghi chú.
 
 ---
 
@@ -91,6 +109,12 @@ Với mỗi sinh viên, kiểm tra nghiêm khắc từ trong `$GRADING_DIR`:
 - Commit timestamp bất thường (VD: 3 giờ sáng liên tục, hoặc tất cả commit trong 1 ngày).
 - Khai báo làm tính năng quan trọng nhưng commit không tương xứng về số lượng / nội dung.
 - Số commit quá ít so với % đóng góp tự khai báo.
+- Code có dấu hiệu AI-generated (comment/docstring quá hoàn hảo, style không nhất quán với phần code khác) nhưng **không có khai báo AI** trong self-report.
+
+**4e. Kiểm tra khai báo AI usage:**
+- Đọc phần khai báo AI trong self-report của từng sinh viên.
+- Nếu có khai báo: xác nhận các file/tính năng đó thực sự tồn tại trong code.
+- Nếu không khai báo: đọc code của sinh viên đó và tìm dấu hiệu AI-generated. Ghi chú nhưng không tự động phạt — sẽ làm rõ qua câu hỏi phỏng vấn.
 
 **4d. Phân bố đóng góp nhóm:**
 - Tổng commit, lines added, files changed theo từng người.
@@ -100,7 +124,15 @@ Với mỗi sinh viên, kiểm tra nghiêm khắc từ trong `$GRADING_DIR`:
 
 ### Bước 5 — Chấm điểm nhóm theo Rubric
 
-Đánh giá từng task dựa trên code thực tế, README, và bằng chứng trong repo:
+Đánh giá từng task dựa trên **code thực tế** là ưu tiên hàng đầu, kết hợp với README và bằng chứng trong repo. **Không chỉ tin vào report — phải mở file code ra đọc và xác minh tính năng thực sự tồn tại.**
+
+> **Nguyên tắc kiểm tra code thực tế:** Với mỗi tính năng được khai báo, hãy tìm và đọc file source code tương ứng. Nếu report nói "có slider" → phải thấy code JS/HTML của slider. Nếu report nói "kết nối database" → phải thấy connection code và query thực tế. Điểm chỉ được tính khi code thực sự tồn tại và hợp lệ, không phải chỉ vì report nói có.
+
+**Quy trình xác minh cho mỗi tính năng:**
+1. Đọc khai báo trong README/self-report
+2. Tìm file source code liên quan (`find . -name "*.js" -o -name "*.ts" -o -name "*.html" -o -name "*.css"`)
+3. Đọc code thực tế — có implement đúng không? Có placeholder/comment giả không?
+4. Ghi lại file path cụ thể làm bằng chứng trong báo cáo chấm điểm
 
 #### Task 1 — Project Planning & Teamwork (2 điểm)
 
@@ -118,18 +150,22 @@ Penalty: push toàn bộ code một lần vào gần deadline — trừ điểm 
 
 | Tiêu chí | Max | Câu hỏi kiểm tra |
 |---|---|---|
-| (a) ≥3 trang (Homepage, content, Contact/About) | 1.0 | Đếm trang, kiểm tra navigation hoạt động |
-| (b) Tailwind CSS tích hợp và dùng đúng | 0.5 | Có trong package.json? Dùng utility classes không? |
-| (c) JS interactivity (slider/modal/validation) | 1.0 | Có element tương tác? JS thực sự cải thiện UX? |
-| (d) Responsive design (mobile/tablet/desktop) | 0.5 | Có responsive classes? Layout không vỡ khi thu nhỏ? |
+| (a) ≥3 trang (Homepage, content, Contact/About) | 1.0 | Đếm file HTML/page thực tế, kiểm tra routing/navigation trong code |
+| (b) Tailwind CSS tích hợp và dùng đúng | 0.5 | Có trong package.json? Đọc file HTML/JSX — có dùng utility classes thực sự không? |
+| (c) JS interactivity (slider/modal/validation) | 1.0 | Đọc file JS — code có logic thực không? Hay chỉ import thư viện mà không dùng? |
+| (d) Responsive design (mobile/tablet/desktop) | 0.5 | Đọc CSS/HTML — có responsive classes/media queries thực sự không? |
+
+**Kiểm tra code bắt buộc cho Task 2:** Liệt kê tất cả file trang (`*.html`, `*.jsx`, `*.tsx`, `*.vue`), đọc ít nhất 1 file JS interactivity, xác nhận Tailwind class names có trong source.
 
 #### Task 3 — Database Integration & Dynamic Content (2 điểm)
 
 | Tiêu chí | Max | Câu hỏi kiểm tra |
 |---|---|---|
-| (a) Database schema / ER diagram | 0.5 | Có ER diagram? Schema đủ bảng và quan hệ? |
-| (b) Kết nối DB + CRUD operations | 0.5 | Có server-side code? Implement đủ CRUD? |
-| (c) ≥2 trang dynamic từ database | 1.0 | Trang nào lấy data từ DB? Có thực sự dynamic? |
+| (a) Database schema / ER diagram | 0.5 | Có ER diagram? Đọc schema file (migrations/models) — có khớp với diagram không? |
+| (b) Kết nối DB + CRUD operations | 0.5 | Đọc server-side code — có connection string thực, có query/ORM calls không? |
+| (c) ≥2 trang dynamic từ database | 1.0 | Đọc route handlers — có fetch data từ DB thực sự không? Hay hardcode data giả? |
+
+**Kiểm tra code bắt buộc cho Task 3:** Tìm và đọc file database connection, đọc ít nhất 2 API route/server handler, xác nhận có query thực chứ không phải mock data.
 
 #### Task 4 — Optimization (1 điểm)
 
@@ -178,6 +214,8 @@ Với mỗi sinh viên, tạo đúng **3 câu hỏi phỏng vấn cá nhân** d�
 - Đủ sâu để phân biệt người thực sự làm vs người khai báo giả
 - Hỏi về quyết định kỹ thuật: "Tại sao em chọn X thay vì Y?"
 - Hỏi về chi tiết cụ thể trong code của họ, không hỏi lý thuyết chung
+- **Nếu sinh viên có khai báo dùng AI:** bắt buộc có ít nhất 1 câu hỏi yêu cầu giải thích hoạt động của đoạn code AI-generated đó. VD: "Em dùng AI để viết phần [X]. Hãy giải thích từng bước code đó hoạt động như thế nào?", "Nếu có bug ở dòng [Y] trong đoạn code AI viết, em sẽ debug như thế nào?"
+- **Nếu phát hiện code có dấu hiệu AI nhưng không khai báo:** tạo câu hỏi probe để xác minh mức độ hiểu biết thực sự
 
 ---
 
@@ -278,9 +316,11 @@ Viết toàn bộ báo cáo vào file `$GRADING_DIR/GRADE_REPORT.md` với cấu
 
 #### 4.1 Đối chiếu Self-Report vs Thực Tế
 
-| Khai báo trong Self-Report | Thực tế trong Git | Đánh giá |
-|---|---|---|
-| [công việc khai báo] | [bằng chứng git] | ✅ Xác nhận / ⚠️ Một phần / ❌ Không tìm thấy |
+| Khai báo trong Self-Report | Thực tế trong Git | Thực tế trong Code | Đánh giá |
+|---|---|---|---|
+| [công việc khai báo] | [bằng chứng git] | [file path + mô tả code tìm thấy] | ✅ Xác nhận / ⚠️ Một phần / ❌ Không tìm thấy |
+
+**Khai báo AI usage:** [Có / Không / Không rõ] — [liệt kê tính năng được khai báo dùng AI nếu có]
 
 **Kết luận độ tin cậy:** [Trung thực / Phóng đại nhẹ / Phóng đại nhiều / Nghi gian dối]
 
@@ -335,6 +375,14 @@ Viết toàn bộ báo cáo vào file `$GRADING_DIR/GRADE_REPORT.md` với cấu
 
 - ⚠️ [Bất thường 1]: [mô tả + bằng chứng]
 - ⚠️ [Bất thường 2]: [mô tả + bằng chứng]
+
+## PHẦN 7: TỔNG HỢP AI USAGE
+
+| Thành viên | Khai báo dùng AI | Tính năng AI-assisted | Code tìm thấy | Đánh giá hiểu biết |
+|---|---|---|---|---|
+| [tên] | Có / Không | [danh sách] | ✅/❌ | Cần kiểm tra qua PV |
+
+**Lưu ý:** Dùng AI là được phép. Cột "Đánh giá hiểu biết" sẽ được xác nhận qua phỏng vấn trực tiếp.
 
 ---
 
