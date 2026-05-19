@@ -78,7 +78,8 @@ gh pr list --state all --json number,title,author,createdAt,mergedAt,body 2>/dev
 
 Đọc từng file `docs/self-reports/self-report-*.md`. Với mỗi self-report, trích xuất:
 - Tên, MSSV, vai trò
-- Task 1–5: công việc khai báo, link commit/PR làm bằng chứng, khó khăn, điểm tự đánh giá
+- Task 1–5: công việc khai báo, link commit/PR làm bằng chứng, điểm tự đánh giá
+- **Khó khăn theo từng Task:** ghi lại chính xác nội dung khó khăn sinh viên khai báo cho mỗi Task (nếu có) — đây là input để cross-check với commit thực tế và tạo câu hỏi phỏng vấn
 - % đóng góp tự ước tính và điểm tổng tự đánh giá
 - **Khai báo sử dụng AI:** danh sách tính năng/đoạn code nào được hỗ trợ bởi AI (Copilot, ChatGPT, Claude, v.v.)
 
@@ -107,15 +108,25 @@ Với mỗi sinh viên:
 
 **Phân tích đóng góp theo Task:**
 
-Với mỗi sinh viên, phân loại commit thực tế của họ vào 5 Task và đánh giá mức độ đóng góp:
+Với mỗi sinh viên, sử dụng **đúng format bảng 5 cột** sau — **cột "Khai báo trong Self-Report" PHẢI được điền đầy đủ từ nội dung self-report đã đọc ở Bước 3, không được để trống hay để placeholder**:
 
-| Task | Commit liên quan | Mức độ đóng góp | Có khớp self-report? |
-|---|---|---|---|
-| Task 1 — Planning | [hash] | Cao / TB / Thấp / Không có | ✅ / ⚠️ / ❌ |
-| Task 2 — UI | [hash] | Cao / TB / Thấp / Không có | ✅ / ⚠️ / ❌ |
-| Task 3 — Database | [hash] | Cao / TB / Thấp / Không có | ✅ / ⚠️ / ❌ |
-| Task 4 — Optimization | [hash] | Cao / TB / Thấp / Không có | ✅ / ⚠️ / ❌ |
-| Task 5 — Peer Review | [hash] | Cao / TB / Thấp / Không có | ✅ / ⚠️ / ❌ |
+| Task | Khai báo trong Self-Report | Commit thực tế (hash) | Code tìm thấy | Mức độ đóng góp |
+|---|---|---|---|---|
+| Task 1 — Planning | [tóm tắt công việc + bằng chứng sinh viên khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 2 — UI | [tóm tắt công việc + bằng chứng sinh viên khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 3 — Database | [tóm tắt công việc + bằng chứng sinh viên khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 4 — Optimization | [tóm tắt công việc + bằng chứng sinh viên khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 5 — Peer Review | [tóm tắt công việc + bằng chứng sinh viên khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+
+Tiếp theo, liệt kê **khó khăn khai báo** theo từng Task (lấy từ self-report đã đọc ở Bước 3):
+
+- Task 1: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+- Task 2: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+- Task 3: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+- Task 4: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+- Task 5: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+
+Nhận xét: Các khó khăn khai báo có hợp lý với commit/code thực tế không? Hay quá chung chung / không liên quan?
 
 ---
 
@@ -197,18 +208,37 @@ Mỗi câu hỏi gồm:
 
 ## Bước 8 — Xuất báo cáo
 
-Viết báo cáo hoàn chỉnh vào `$GRADING_DIR/GRADE_REPORT.md` với cấu trúc:
+Viết báo cáo hoàn chỉnh vào `$GRADING_DIR/GRADE_REPORT.md` với cấu trúc **chính xác** dưới đây.
+
+> **TUÂN THỦ CẤU TRÚC BẮT BUỘC:**
+> - Sao chép **đúng tên heading** (`##`, `###`, `####`) — không tự ý đổi tên, thêm hay bỏ section
+> - PHẦN 4 mỗi thành viên phải có **đúng 3 sub-section**: `#### 4.1 Đóng góp theo từng Task`, `#### 4.2 Điểm cá nhân`, `#### 4.3 Câu hỏi phỏng vấn` — không dùng tên khác
+> - Bảng trong `#### 4.1` phải có **đúng 5 cột** (`Task | Khai báo trong Self-Report | Commit thực tế (hash) | Code tìm thấy | Mức độ đóng góp`) — không dùng bảng 4 cột
+> - Cột `Khai báo trong Self-Report` phải có nội dung thực từ self-report, không được để placeholder
+
+Cấu trúc:
 
 ```
 # BÁO CÁO CHẤM ĐIỂM — [Tên nhóm]
 ## PHẦN 1: TỔNG QUAN REPOSITORY
 ## PHẦN 2: PHÂN TÍCH COMMIT HISTORY
 ## PHẦN 3: CHẤM ĐIỂM NHÓM (Task 1–5 với bảng điểm chi tiết + file path bằng chứng code)
-## PHẦN 4: ĐÁNH GIÁ TỪNG THÀNH VIÊN
-  - Bảng đóng góp theo từng Task (Task 1–5): commit thực tế, code tìm thấy, có khớp self-report không
-  - Khai báo AI usage và nhận xét
-  - Điểm cá nhân với hệ số và lý do
-  - 3 câu hỏi phỏng vấn về mức độ hiểu (vấn đề cần giải quyết, lý do chọn giải pháp, quá trình làm)
+## PHẦN 4: ĐÁNH GIÁ TỪNG THÀNH VIÊN (lặp lại cho mỗi thành viên)
+
+  ### [Tên] — MSSV: [MSSV] — Vai trò: [vai trò]
+
+  #### 4.1 Đóng góp theo từng Task
+  - Bảng **5 cột** bắt buộc: `Task | Khai báo trong Self-Report | Commit thực tế (hash) | Code tìm thấy | Mức độ đóng góp`
+  - Cột "Khai báo trong Self-Report" phải có nội dung thực từ self-report (công việc + bằng chứng sinh viên nêu)
+  - Khó khăn khai báo theo từng Task (từ self-report) + nhận xét độ hợp lý
+  - Code thực sự tìm thấy: danh sách file path + mô tả ngắn
+  - Khai báo AI usage, Kết luận độ tin cậy, Bằng chứng cụ thể
+
+  #### 4.2 Điểm cá nhân
+  - Điểm nhóm, hệ số đóng góp, điểm cá nhân, lý do hệ số
+
+  #### 4.3 Câu hỏi phỏng vấn
+  - 3 câu hỏi về mức độ hiểu (vấn đề cần giải quyết, lý do chọn giải pháp, quá trình làm)
 ## PHẦN 5: TỔNG KẾT ĐIỂM (bảng tổng hợp)
 ## PHẦN 6: CẢNH BÁO VÀ KHẢ NĂNG GIAN DỐI
 ## PHẦN 7: TỔNG HỢP AI USAGE (bảng: thành viên | khai báo AI | tính năng | code tìm thấy)

@@ -73,7 +73,8 @@ gh pr list --state all --json number,title,author,createdAt,mergedAt,body 2>/dev
 
 Đọc từng file trong `docs/self-reports/` (pattern: `self-report-*.md`). Với mỗi self-report, trích xuất:
 - Tên, MSSV, vai trò
-- Với mỗi Task (1–5): công việc khai báo, link commit/PR/issue làm bằng chứng, khó khăn, điểm tự đánh giá
+- Với mỗi Task (1–5): công việc khai báo, link commit/PR/issue làm bằng chứng, điểm tự đánh giá
+- **Khó khăn theo từng Task:** ghi lại chính xác nội dung khó khăn sinh viên khai báo cho mỗi Task (nếu có) — đây là input để cross-check với commit thực tế và tạo câu hỏi phỏng vấn
 - Tổng kết đóng góp và % đóng góp tự ước tính
 - **Khai báo sử dụng AI:** danh sách tính năng/đoạn code nào được hỗ trợ bởi AI (Copilot, ChatGPT, Claude, v.v.)
 
@@ -109,15 +110,25 @@ Với mỗi sinh viên, kiểm tra nghiêm khắc từ trong `$GRADING_DIR`:
 
 **4d. Phân tích đóng góp theo từng Task:**
 
-Với mỗi sinh viên, phân loại các commit thực tế của họ vào 5 Task lớn và đánh giá mức độ đóng góp:
+Với mỗi sinh viên, sử dụng **đúng format bảng 5 cột** sau — **cột "Khai báo trong Self-Report" PHẢI được điền đầy đủ từ nội dung self-report đã đọc ở Bước 3, không được để trống hay để placeholder**:
 
-| Task | Commit liên quan tìm thấy | Mức độ đóng góp | Có khớp self-report không? |
-|---|---|---|---|
-| Task 1 — Planning | [danh sách hash] | Cao / Trung bình / Thấp / Không có | ✅ / ⚠️ / ❌ |
-| Task 2 — UI Implementation | [danh sách hash] | Cao / Trung bình / Thấp / Không có | ✅ / ⚠️ / ❌ |
-| Task 3 — Database | [danh sách hash] | Cao / Trung bình / Thấp / Không có | ✅ / ⚠️ / ❌ |
-| Task 4 — Optimization | [danh sách hash] | Cao / Trung bình / Thấp / Không có | ✅ / ⚠️ / ❌ |
-| Task 5 — Peer Review | [danh sách hash] | Cao / Trung bình / Thấp / Không có | ✅ / ⚠️ / ❌ |
+| Task | Khai báo trong Self-Report | Commit thực tế (hash) | Code tìm thấy | Mức độ đóng góp |
+|---|---|---|---|---|
+| Task 1 — Planning | [tóm tắt công việc + bằng chứng sinh viên khai báo] | [danh sách hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 2 — UI | [tóm tắt công việc + bằng chứng sinh viên khai báo] | [danh sách hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 3 — Database | [tóm tắt công việc + bằng chứng sinh viên khai báo] | [danh sách hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 4 — Optimization | [tóm tắt công việc + bằng chứng sinh viên khai báo] | [danh sách hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 5 — Peer Review | [tóm tắt công việc + bằng chứng sinh viên khai báo] | [danh sách hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+
+Tiếp theo, liệt kê **khó khăn khai báo** theo từng Task (lấy từ self-report đã đọc ở Bước 3):
+
+- Task 1: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+- Task 2: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+- Task 3: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+- Task 4: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+- Task 5: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+
+Nhận xét: Các khó khăn khai báo có hợp lý với commit/code thực tế không? Hay quá chung chung / không liên quan?
 
 Hướng dẫn phân loại commit: dựa vào commit message, files thay đổi, và thời điểm commit để xác định task tương ứng. Một commit có thể thuộc nhiều task.
 
@@ -234,7 +245,13 @@ Với mỗi sinh viên, tạo đúng **3 câu hỏi phỏng vấn cá nhân** d�
 
 ### Bước 8 — Xuất báo cáo ra file
 
-Viết toàn bộ báo cáo vào file `$GRADING_DIR/GRADE_REPORT.md` với cấu trúc sau:
+Viết toàn bộ báo cáo vào file `$GRADING_DIR/GRADE_REPORT.md` với cấu trúc **chính xác** dưới đây.
+
+> **TUÂN THỦ CẤU TRÚC BẮT BUỘC:**
+> - Sao chép **đúng tên heading** (`##`, `###`, `####`) — không tự ý đổi tên, thêm hay bỏ section
+> - PHẦN 4 mỗi thành viên phải có **đúng 3 sub-section**: `#### 4.1 Đóng góp theo từng Task`, `#### 4.2 Điểm cá nhân`, `#### 4.3 Câu hỏi phỏng vấn` — không dùng tên khác
+> - Bảng trong `#### 4.1` phải có **đúng 5 cột** (`Task | Khai báo trong Self-Report | Commit thực tế (hash) | Code tìm thấy | Mức độ đóng góp`) — không dùng bảng 4 cột
+> - Cột `Khai báo trong Self-Report` phải có nội dung thực từ self-report, không được để placeholder
 
 ---
 
@@ -329,13 +346,28 @@ Viết toàn bộ báo cáo vào file `$GRADING_DIR/GRADE_REPORT.md` với cấu
 
 #### 4.1 Đóng góp theo từng Task
 
+> ⚠️ Cột "Khai báo trong Self-Report" phải được điền với nội dung thực tế từ self-report (tóm tắt công việc + bằng chứng sinh viên khai báo), không được để placeholder.
+
 | Task | Khai báo trong Self-Report | Commit thực tế (hash) | Code tìm thấy | Mức độ đóng góp |
 |---|---|---|---|---|
-| Task 1 — Planning | [khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
-| Task 2 — UI | [khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
-| Task 3 — Database | [khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
-| Task 4 — Optimization | [khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
-| Task 5 — Peer Review | [khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 1 — Planning | [công việc + bằng chứng sinh viên khai báo trong self-report] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 2 — UI | [công việc + bằng chứng sinh viên khai báo trong self-report] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 3 — Database | [công việc + bằng chứng sinh viên khai báo trong self-report] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 4 — Optimization | [công việc + bằng chứng sinh viên khai báo trong self-report] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 5 — Peer Review | [công việc + bằng chứng sinh viên khai báo trong self-report] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+
+**Khó khăn khai báo (từ self-report):**
+- Task 1: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+- Task 2: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+- Task 3: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+- Task 4: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+- Task 5: [khó khăn sinh viên khai báo, hoặc "Không đề cập"]
+
+**Nhận xét khó khăn:** [Khó khăn khai báo có hợp lý với commit/code thực tế không? Hay quá chung chung / không gắn với việc họ thực sự làm?]
+
+**Code thực sự tìm thấy (bằng chứng source code):**
+- [file path 1] — [tính năng / đoạn code liên quan đến công việc khai báo]
+- [file path 2] — [mô tả]
 
 **Khai báo AI usage:** [Có / Không / Không rõ] — [liệt kê tính năng được khai báo dùng AI nếu có]
 
