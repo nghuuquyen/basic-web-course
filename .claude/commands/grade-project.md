@@ -116,7 +116,21 @@ Với mỗi sinh viên, kiểm tra nghiêm khắc từ trong `$GRADING_DIR`:
 - Nếu có khai báo: xác nhận các file/tính năng đó thực sự tồn tại trong code.
 - Nếu không khai báo: đọc code của sinh viên đó và tìm dấu hiệu AI-generated. Ghi chú nhưng không tự động phạt — sẽ làm rõ qua câu hỏi phỏng vấn.
 
-**4d. Phân bố đóng góp nhóm:**
+**4d. Phân tích đóng góp theo từng Task:**
+
+Với mỗi sinh viên, phân loại các commit thực tế của họ vào 5 Task lớn và đánh giá mức độ đóng góp:
+
+| Task | Commit liên quan tìm thấy | Mức độ đóng góp | Có khớp self-report không? |
+|---|---|---|---|
+| Task 1 — Planning | [danh sách hash] | Cao / Trung bình / Thấp / Không có | ✅ / ⚠️ / ❌ |
+| Task 2 — UI Implementation | [danh sách hash] | Cao / Trung bình / Thấp / Không có | ✅ / ⚠️ / ❌ |
+| Task 3 — Database | [danh sách hash] | Cao / Trung bình / Thấp / Không có | ✅ / ⚠️ / ❌ |
+| Task 4 — Optimization | [danh sách hash] | Cao / Trung bình / Thấp / Không có | ✅ / ⚠️ / ❌ |
+| Task 5 — Peer Review | [danh sách hash] | Cao / Trung bình / Thấp / Không có | ✅ / ⚠️ / ❌ |
+
+Hướng dẫn phân loại commit: dựa vào commit message, files thay đổi, và thời điểm commit để xác định task tương ứng. Một commit có thể thuộc nhiều task.
+
+**4e. Phân bố đóng góp nhóm:**
 - Tổng commit, lines added, files changed theo từng người.
 - Ai làm nhiều nhất / ít nhất? Có cân bằng không?
 
@@ -205,17 +219,25 @@ Penalty: push toàn bộ code một lần vào gần deadline — trừ điểm 
 
 ### Bước 7 — Tạo câu hỏi phỏng vấn
 
-Với mỗi sinh viên, tạo đúng **3 câu hỏi phỏng vấn cá nhân** dựa trên:
-- Những gì họ khai báo đã làm trong self-report
-- Code cụ thể trong repo liên quan đến phần của họ
-- Khó khăn họ mô tả và cách giải quyết
+Với mỗi sinh viên, tạo đúng **3 câu hỏi phỏng vấn cá nhân** dựa trên những gì họ khai báo đã làm.
 
-**Yêu cầu câu hỏi:**
-- Đủ sâu để phân biệt người thực sự làm vs người khai báo giả
-- Hỏi về quyết định kỹ thuật: "Tại sao em chọn X thay vì Y?"
-- Hỏi về chi tiết cụ thể trong code của họ, không hỏi lý thuyết chung
-- **Nếu sinh viên có khai báo dùng AI:** bắt buộc có ít nhất 1 câu hỏi yêu cầu giải thích hoạt động của đoạn code AI-generated đó. VD: "Em dùng AI để viết phần [X]. Hãy giải thích từng bước code đó hoạt động như thế nào?", "Nếu có bug ở dòng [Y] trong đoạn code AI viết, em sẽ debug như thế nào?"
-- **Nếu phát hiện code có dấu hiệu AI nhưng không khai báo:** tạo câu hỏi probe để xác minh mức độ hiểu biết thực sự
+**Triết lý đặt câu hỏi:** Mục tiêu là kiểm tra sinh viên *hiểu* project của mình đến đâu — hiểu vấn đề cần giải quyết, hiểu tại sao chọn cách làm đó, hiểu tính năng hoạt động như thế nào với người dùng. **Không** hỏi cú pháp, không hỏi lý thuyết giáo khoa, không hỏi những chi tiết kỹ thuật mà chỉ người đọc tài liệu mới biết.
+
+**Dạng câu hỏi nên dùng:**
+- "Tính năng [X] trong project của em giải quyết vấn đề gì cho người dùng?"
+- "Tại sao team quyết định dùng [Y] cho phần này thay vì cách khác?"
+- "Nếu có người dùng mới vào trang của em lần đầu, họ sẽ làm gì? Luồng đó được xử lý như thế nào?"
+- "Em gặp khó khăn gì khi làm phần [Z]? Em giải quyết bằng cách nào?"
+- "Nếu phải làm lại phần này, em sẽ thay đổi gì?"
+
+**Dạng câu hỏi KHÔNG nên dùng (tránh):**
+- Hỏi cú pháp: "Viết câu SQL SELECT như thế nào?", "Cú pháp của flexbox là gì?"
+- Hỏi lý thuyết chung không liên quan đến project: "HTTP là gì?", "Giải thích REST API."
+- Câu hỏi đánh đố chi tiết kỹ thuật: "Dòng 47 trong file này làm gì?"
+
+**Nếu sinh viên khai báo dùng AI:** có ít nhất 1 câu hỏi theo hướng: "Em dùng AI để viết phần [X] — em có thể giải thích phần đó hoạt động như thế nào không? Nếu có lỗi xảy ra ở đây, em sẽ bắt đầu tìm vấn đề từ đâu?"
+
+**Nếu phát hiện code có dấu hiệu AI nhưng không khai báo:** hỏi để kiểm tra mức độ hiểu, ví dụ: "Em có thể giải thích tại sao đoạn code này được viết theo cách này không?"
 
 ---
 
@@ -314,11 +336,15 @@ Viết toàn bộ báo cáo vào file `$GRADING_DIR/GRADE_REPORT.md` với cấu
 
 ### [Tên sinh viên 1] — MSSV: [MSSV] — Vai trò: [vai trò]
 
-#### 4.1 Đối chiếu Self-Report vs Thực Tế
+#### 4.1 Đóng góp theo từng Task
 
-| Khai báo trong Self-Report | Thực tế trong Git | Thực tế trong Code | Đánh giá |
-|---|---|---|---|
-| [công việc khai báo] | [bằng chứng git] | [file path + mô tả code tìm thấy] | ✅ Xác nhận / ⚠️ Một phần / ❌ Không tìm thấy |
+| Task | Khai báo trong Self-Report | Commit thực tế (hash) | Code tìm thấy | Mức độ đóng góp |
+|---|---|---|---|---|
+| Task 1 — Planning | [khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 2 — UI | [khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 3 — Database | [khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 4 — Optimization | [khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
+| Task 5 — Peer Review | [khai báo] | [hash] | [file path] | ✅ Đủ / ⚠️ Một phần / ❌ Không có |
 
 **Khai báo AI usage:** [Có / Không / Không rõ] — [liệt kê tính năng được khai báo dùng AI nếu có]
 
@@ -337,23 +363,25 @@ Viết toàn bộ báo cáo vào file `$GRADING_DIR/GRADE_REPORT.md` với cấu
 
 #### 4.3 Câu hỏi phỏng vấn
 
+> Câu hỏi tập trung vào mức độ hiểu của sinh viên về vấn đề cần giải quyết và lý do chọn giải pháp đó, không phải kiểm tra cú pháp hay lý thuyết.
+
 **Câu 1:**
-- **Câu hỏi:** [câu hỏi cụ thể về code/tính năng họ làm]
-- **Mục đích:** [kiểm tra gì]
-- **Câu trả lời gợi ý:** [các điểm cần có]
-- **Dấu hiệu không hiểu:** [câu trả lời cho thấy không thực sự làm]
+- **Câu hỏi:** [hỏi về vấn đề mà tính năng họ làm giải quyết — VD: "Tính năng X giúp người dùng làm gì? Nếu không có nó thì sao?"]
+- **Mục đích:** kiểm tra sinh viên hiểu giá trị của tính năng mình làm
+- **Dấu hiệu hiểu:** [những gì cần có trong câu trả lời]
+- **Dấu hiệu không hiểu:** [dấu hiệu trả lời chỉ thuộc bài, không có sự liên hệ với project thực tế]
 
 **Câu 2:**
-- **Câu hỏi:** [câu hỏi về quyết định kỹ thuật]
-- **Mục đích:** [kiểm tra gì]
-- **Câu trả lời gợi ý:** [các điểm cần có]
-- **Dấu hiệu không hiểu:** [câu trả lời cho thấy không thực sự làm]
+- **Câu hỏi:** [hỏi về lý do chọn giải pháp — VD: "Tại sao team dùng Y cho vấn đề này? Có cách nào khác không và tại sao không chọn?"]
+- **Mục đích:** kiểm tra sinh viên hiểu trade-off và lý do quyết định
+- **Dấu hiệu hiểu:** [những gì cần có]
+- **Dấu hiệu không hiểu:** [dấu hiệu trả lời chung chung, không gắn với context của project]
 
 **Câu 3:**
-- **Câu hỏi:** [câu hỏi về khó khăn / vấn đề họ khai báo]
-- **Mục đích:** [kiểm tra gì]
-- **Câu trả lời gợi ý:** [các điểm cần có]
-- **Dấu hiệu không hiểu:** [câu trả lời cho thấy không thực sự làm]
+- **Câu hỏi:** [hỏi về quá trình làm và điều họ rút ra — VD: "Phần này khó nhất ở điểm nào? Em xử lý như thế nào?" hoặc "Nếu làm lại em đổi gì?"]
+- **Mục đích:** kiểm tra sinh viên có thực sự trải qua quá trình làm hay không
+- **Dấu hiệu hiểu:** [kể được khó khăn cụ thể, gắn với code thực tế]
+- **Dấu hiệu không hiểu:** [khó khăn quá chung chung hoặc không liên quan đến tính năng họ làm]
 
 ---
 

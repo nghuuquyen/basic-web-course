@@ -112,6 +112,18 @@ Với mỗi sinh viên:
 - Xác nhận các file/tính năng được khai báo dùng AI có thực sự tồn tại trong code.
 - Nếu không có khai báo: đọc code và tìm dấu hiệu AI-generated. Ghi chú nhưng không tự động phạt — sẽ làm rõ qua câu hỏi phỏng vấn.
 
+**Phân tích đóng góp theo Task:**
+
+Với mỗi sinh viên, phân loại commit thực tế của họ vào 5 Task và đánh giá mức độ đóng góp:
+
+| Task | Commit liên quan | Mức độ đóng góp | Có khớp self-report? |
+|---|---|---|---|
+| Task 1 — Planning | [hash] | Cao / TB / Thấp / Không có | ✅ / ⚠️ / ❌ |
+| Task 2 — UI | [hash] | Cao / TB / Thấp / Không có | ✅ / ⚠️ / ❌ |
+| Task 3 — Database | [hash] | Cao / TB / Thấp / Không có | ✅ / ⚠️ / ❌ |
+| Task 4 — Optimization | [hash] | Cao / TB / Thấp / Không có | ✅ / ⚠️ / ❌ |
+| Task 5 — Peer Review | [hash] | Cao / TB / Thấp / Không có | ✅ / ⚠️ / ❌ |
+
 ---
 
 ## Bước 5 — Chấm điểm nhóm (10 điểm)
@@ -163,15 +175,30 @@ Quy trình xác minh cho mỗi tính năng: đọc khai báo trong report → t�
 
 ## Bước 7 — Câu hỏi phỏng vấn
 
-Với mỗi sinh viên, tạo **3 câu hỏi phỏng vấn** dựa trên code họ làm và self-report của họ.
+Với mỗi sinh viên, tạo **3 câu hỏi phỏng vấn** dựa trên những gì họ khai báo đã làm.
+
+**Triết lý:** Hỏi để kiểm tra sinh viên *hiểu* project của mình — hiểu vấn đề cần giải quyết, hiểu tại sao chọn cách làm đó, hiểu luồng hoạt động của tính năng với người dùng. **Không** hỏi cú pháp, không hỏi lý thuyết giáo khoa, không hỏi chi tiết kỹ thuật đánh đố.
+
+Dạng câu hỏi nên dùng:
+- "Tính năng [X] giải quyết vấn đề gì cho người dùng?"
+- "Tại sao team dùng [Y] cho phần này? Có cách nào khác không?"
+- "Phần này khó nhất ở đâu? Em xử lý như thế nào?"
+- "Nếu làm lại, em sẽ thay đổi gì?"
+
+Dạng câu hỏi **tránh:**
+- Hỏi cú pháp: "Viết câu SQL SELECT như thế nào?"
+- Hỏi lý thuyết chung: "HTTP là gì?", "Giải thích REST API."
+- Hỏi chi tiết đánh đố: "Dòng 47 trong file này làm gì?"
 
 Mỗi câu hỏi gồm:
-- **Câu hỏi:** câu hỏi cụ thể, đủ sâu để phân biệt người thực sự làm
-- **Mục đích:** kiểm tra gì
-- **Câu trả lời gợi ý:** điểm cần có
-- **Dấu hiệu không hiểu:** dấu hiệu người không thực sự làm
+- **Câu hỏi:** câu hỏi cụ thể, gắn với tính năng họ làm
+- **Mục đích:** kiểm tra mức độ hiểu gì
+- **Dấu hiệu hiểu:** những gì cần có trong câu trả lời
+- **Dấu hiệu không hiểu:** trả lời chung chung hoặc không gắn được với project thực tế
 
-**Lưu ý về AI:** Nếu sinh viên khai báo dùng AI, bắt buộc có ít nhất 1 câu hỏi yêu cầu giải thích hoạt động của đoạn code AI-generated đó (VD: "Em dùng AI để viết phần [X]. Hãy giải thích từng bước code đó hoạt động như thế nào?"). Nếu phát hiện code có dấu hiệu AI nhưng không khai báo, tạo câu hỏi probe để xác minh mức độ hiểu biết thực sự.
+**Nếu sinh viên khai báo dùng AI:** có ít nhất 1 câu hỏi theo hướng: "Em dùng AI để viết phần [X] — em có thể giải thích phần đó hoạt động như thế nào không? Nếu có lỗi xảy ra, em sẽ bắt đầu tìm vấn đề từ đâu?"
+
+**Nếu phát hiện code có dấu hiệu AI nhưng không khai báo:** hỏi về mức độ hiểu để xác minh, không kết luận trước.
 
 ---
 
@@ -185,10 +212,10 @@ Viết báo cáo hoàn chỉnh vào `$GRADING_DIR/GRADE_REPORT.md` với cấu t
 ## PHẦN 2: PHÂN TÍCH COMMIT HISTORY
 ## PHẦN 3: CHẤM ĐIỂM NHÓM (Task 1–5 với bảng điểm chi tiết + file path bằng chứng code)
 ## PHẦN 4: ĐÁNH GIÁ TỪNG THÀNH VIÊN
-  - Đối chiếu self-report vs git vs code thực tế (3 cột)
+  - Bảng đóng góp theo từng Task (Task 1–5): commit thực tế, code tìm thấy, có khớp self-report không
   - Khai báo AI usage và nhận xét
   - Điểm cá nhân với hệ số và lý do
-  - 3 câu hỏi phỏng vấn (bao gồm câu hỏi về AI nếu có)
+  - 3 câu hỏi phỏng vấn về mức độ hiểu (vấn đề cần giải quyết, lý do chọn giải pháp, quá trình làm)
 ## PHẦN 5: TỔNG KẾT ĐIỂM (bảng tổng hợp)
 ## PHẦN 6: CẢNH BÁO VÀ KHẢ NĂNG GIAN DỐI
 ## PHẦN 7: TỔNG HỢP AI USAGE (bảng: thành viên | khai báo AI | tính năng | code tìm thấy)
