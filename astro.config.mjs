@@ -36,7 +36,8 @@ export default defineConfig({
       ],
       sidebar: [
         { label: 'Trang chủ', link: '/' },
-        { label: 'Lộ trình học', link: '/schedule' },
+        // { label: 'Lộ trình 6 Level', link: '/roadmap' },
+        { label: 'Lịch học', link: '/schedule' },
         {
           label: 'Modules',
           items: [
