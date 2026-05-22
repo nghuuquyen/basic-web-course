@@ -1,5 +1,5 @@
 ---
-// Lộ trình khoá học — 6 Level — "Học Web Trong Thời Kỳ AI"
+// Lộ trình khoá học — 6 Level — "Học Web Trong Kỷ Nguyên AI"
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
@@ -8,8 +8,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Học Web Trong Thời Kỳ AI — Lộ Trình 6 Level</title>
-  <meta name="description" content="Khoá học phát triển Web trong thời kỳ AI — từ nền tảng đến sản phẩm thật. 6 level rõ ràng, có AI challenges thực chiến." />
+  <title>Học Web Trong Kỷ Nguyên AI — Lộ Trình 6 Level</title>
+  <meta name="description" content="Khoá học phát triển Web Trong Kỷ Nguyên AI — từ nền tảng đến sản phẩm thật. 6 level rõ ràng, có AI challenges thực chiến." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -502,6 +502,111 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     .fade-up { opacity: 0; transform: translateY(18px); transition: opacity .5s, transform .5s; }
     .fade-up.visible { opacity: 1; transform: none; }
 
+    /* ════════ PROBLEMS — Symptom Recognition ════════ */
+    .prob-stack { display: flex; flex-direction: column; }
+    .prob-item {
+      display: grid; grid-template-columns: 72px 1fr; gap: 0;
+      border-bottom: 1px solid var(--border); padding: 2.5rem 0;
+      transition: background .2s;
+    }
+    .prob-item:first-child { border-top: 1px solid var(--border); }
+    .prob-item:hover { background: rgba(255,255,255,.015); }
+    .prob-marker {
+      font-size: 3rem; font-weight: 900; line-height: 1;
+      color: var(--border-lg); letter-spacing: -.04em;
+      padding-top: .15rem; flex-shrink: 0; font-variant-numeric: tabular-nums;
+    }
+    .prob-body-wrap { padding-left: .5rem; }
+    .prob-symptom {
+      font-size: .875rem; font-style: italic;
+      color: var(--text-3); margin-bottom: 1rem; line-height: 1.6;
+      padding: .7rem 1rem; border-left: 2px solid var(--border-md);
+      background: rgba(255,255,255,.02); border-radius: 0 6px 6px 0;
+      display: inline-block; width: 100%;
+    }
+    .prob-symptom em { color: var(--text-2); font-style: italic; }
+    .prob-title-row { display: flex; align-items: center; gap: .75rem; margin-bottom: .6rem; }
+    .prob-icon { font-size: 1.1rem; }
+    .prob-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .prob-desc { font-size: .855rem; color: var(--text-2); line-height: 1.7; max-width: 640px; }
+    @media (max-width: 600px) {
+      .prob-item { grid-template-columns: 1fr; gap: .5rem; }
+      .prob-marker { font-size: 1.8rem; }
+    }
+
+    /* ════════ APPROACH — Method Rails ════════ */
+    .method-rails { display: flex; flex-direction: column; gap: 1px; margin-top: 2.5rem; }
+    .method-item {
+      display: grid; grid-template-columns: 1fr 2fr; align-items: stretch;
+      background: var(--bg-card); border: 1px solid var(--border); margin-bottom: -1px;
+      transition: border-color .2s; position: relative; overflow: hidden;
+    }
+    .method-item:first-child { border-radius: 14px 14px 0 0; }
+    .method-item:last-child { border-radius: 0 0 14px 14px; margin-bottom: 0; }
+    .method-item:hover { border-color: var(--border-md); z-index: 1; }
+    .method-left {
+      padding: 1.75rem 1.5rem; border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: center;
+      background: var(--bg); position: relative; overflow: hidden;
+    }
+    .method-left::before {
+      content: attr(data-n); position: absolute; right: 5px; top: 50%; transform: translateY(-50%);
+      font-size: 5rem; font-weight: 900; color: var(--border); line-height: 1;
+      letter-spacing: -.04em; pointer-events: none; user-select: none;
+      display: none; 
+    }
+    .method-num {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: .4rem;
+    }
+    .method-heading { font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .method-right { padding: 1.75rem 1.75rem; display: flex; align-items: center; }
+    .method-right p { font-size: .875rem; color: var(--text-2); line-height: 1.75; max-width: 520px; }
+    .method-right strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 640px) {
+      .method-item { grid-template-columns: 1fr; }
+      .method-left { border-right: none; border-bottom: 1px solid var(--border); padding: 1.25rem 1.25rem .85rem; }
+      .method-left::before { display: none; }
+      .method-right { padding: 1rem 1.25rem 1.25rem; }
+      .method-item:first-child { border-radius: 12px 12px 0 0; }
+      .method-item:last-child { border-radius: 0 0 12px 12px; }
+    }
+
+    /* ════════ WHO — Scenario Personas ════════ */
+    .persona-stack { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2.5rem; }
+    .persona-item {
+      display: grid; grid-template-columns: 120px 1fr; gap: 0;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden; transition: border-color .2s;
+    }
+    .persona-item:hover { border-color: var(--border-md); }
+    .persona-left {
+      background: var(--bg); border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: .5rem; padding: 1.75rem .75rem;
+    }
+    .persona-emoji { font-size: 2.25rem; line-height: 1; }
+    .persona-tag-label {
+      font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-3); text-align: center; line-height: 1.3;
+    }
+    .persona-right { padding: 1.75rem; }
+    .persona-scenario {
+      font-size: .855rem; font-style: italic; color: var(--text-3);
+      border-left: 2px solid var(--border-md);
+      padding: .55rem .9rem; margin-bottom: 1rem;
+      background: rgba(255,255,255,.02); border-radius: 0 6px 6px 0;
+      line-height: 1.65;
+    }
+    .persona-scenario em { color: var(--text-2); }
+    .persona-name { font-size: .975rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
+    .persona-desc { font-size: .845rem; color: var(--text-2); line-height: 1.7; }
+    @media (max-width: 560px) {
+      .persona-item { grid-template-columns: 1fr; }
+      .persona-left { flex-direction: row; border-right: none; border-bottom: 1px solid var(--border); padding: 1rem 1.25rem; gap: .75rem; }
+      .persona-right { padding: 1.25rem; }
+    }
+
     /* ════════ RESPONSIVE HELPERS ════════ */
     @media (max-width: 500px) {
       .hero h1 { font-size: 1.85rem; }
@@ -531,7 +636,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <section class="hero">
     <div style="max-width:900px; margin: 0 auto;">
       <div class="hero-eyebrow">⚡ Khoá học thực chiến · 6 Level · AI-era</div>
-      <h1>Học Phát Triển Web<br/><span class="hl">Trong Thời Kỳ AI</span></h1>
+      <h1>Học Phát Triển Web<br/><span class="hl">Trong Kỷ Nguyên AI</span></h1>
       <p class="hero-sub">Không chỉ học cách tạo website bằng AI — mà học cách <strong>hiểu, đánh giá, và phát triển kỹ năng lâu dài</strong> cùng AI. Từ nền tảng đến sản phẩm thật, đủ để đưa vào CV.</p>
       <div class="hero-actions">
         <a href="#pricing" class="btn btn-primary">
@@ -555,28 +660,50 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <!-- ──────────── PROBLEMS ──────────── -->
   <section class="problems">
-    <div class="container" style="padding-top: 3.5rem; padding-bottom: 0;">
+    <div class="container" style="padding-top: 3.5rem; padding-bottom: 2rem;">
       <div class="section-eyebrow">Tại sao cần khoá học này?</div>
       <h2 class="section-title">Dùng AI nhiều không có nghĩa là học tốt hơn</h2>
-      <p class="section-sub">Quan sát trong nhiều khoá giảng dạy cho thấy ba vấn đề cốt lõi mà người học thường gặp khi kết hợp AI vào việc học lập trình Web:</p>
+      <p class="section-sub">Quan sát qua nhiều khoá giảng dạy cho thấy ba vấn đề cốt lõi lặp đi lặp lại — không phải ở năng lực học viên, mà ở cách tiếp cận.</p>
     </div>
-    <div class="container">
-      <div class="problems-grid">
-        <div class="problem-card">
-          <div class="problem-icon">⚠️</div>
-          <div class="problem-title">Dùng AI để hoàn thành — không phải để hiểu</div>
-          <div class="problem-desc">Hoàn thành bài tập bằng AI là một chuyện. Giữ được kiến thức đó sau một năm là chuyện khác. Khi môn Web học ở năm 2–3 nhưng phải đến năm 4–5 mới đi thực tập, phần lớn những gì đã dùng AI để "làm xong" sẽ không còn ở lại.</div>
+    <div class="container" style="padding-bottom: 3.5rem;">
+      <div class="prob-stack">
+
+        <div class="prob-item">
+          <div class="prob-marker">01</div>
+          <div class="prob-body-wrap">
+            <div class="prob-symptom"><em>"Nộp bài xong rồi nhưng hỏi lại sao mình làm vậy thì không giải thích được..."</em></div>
+            <div class="prob-title-row">
+              <span class="prob-icon">⚡</span>
+              <span class="prob-title">Dùng AI để hoàn thành — không phải để hiểu</span>
+            </div>
+            <p class="prob-desc">Hoàn thành bài tập bằng AI là một việc. Giữ được kiến thức đó sau khi kỳ thi qua đi là việc khác. Trong chương trình đại học, môn Web thường học ở năm 2–3, nhưng phải đến năm 4–5 mới đi thực tập. Khi đó, những gì được làm bằng AI mà không thực sự hiểu hầu như không còn lại gì để dùng.</p>
+          </div>
         </div>
-        <div class="problem-card">
-          <div class="problem-icon">🔍</div>
-          <div class="problem-title">Không có nền tảng để đánh giá kết quả AI</div>
-          <div class="problem-desc">AI có thể tạo ra HTML không semantic, JavaScript có lỗ hổng bảo mật, hay database schema chưa hợp lý — và người không có nền tảng sẽ không nhận ra điều đó. Chất lượng kết quả AI phụ thuộc vào khả năng đánh giá của người dùng, không phải chỉ vào AI.</div>
+
+        <div class="prob-item">
+          <div class="prob-marker">02</div>
+          <div class="prob-body-wrap">
+            <div class="prob-symptom"><em>"AI tạo ra code chạy được, nộp thầy chấm điểm thấp — mình không hiểu tại sao..."</em></div>
+            <div class="prob-title-row">
+              <span class="prob-icon">🔍</span>
+              <span class="prob-title">Thiếu nền tảng để đánh giá kết quả AI</span>
+            </div>
+            <p class="prob-desc">AI có thể tạo ra HTML không semantic, JavaScript có lỗ hổng bảo mật, hay database schema chưa hợp lý — và nếu không có nền tảng kỹ thuật tương ứng, bạn sẽ không nhận ra điều đó. Chất lượng kết quả AI không chỉ phụ thuộc vào AI — mà phụ thuộc vào khả năng đọc hiểu và phán xét của người dùng nó.</p>
+          </div>
         </div>
-        <div class="problem-card">
-          <div class="problem-icon">🧩</div>
-          <div class="problem-title">Chưa nắm cơ chế làm việc với AI</div>
-          <div class="problem-desc">Làm việc hiệu quả với AI không phải là biết cách prompt hay dùng tool nào. Nó xoay quanh bốn khái niệm nền tảng: <strong>Model, Context, Memory, Plan</strong>. Không phân biệt được những thứ này, dùng tool xịn đến đâu cũng khó cải thiện đáng kể.</div>
+
+        <div class="prob-item">
+          <div class="prob-marker">03</div>
+          <div class="prob-body-wrap">
+            <div class="prob-symptom"><em>"Mình cũng hỏi câu đó, sao bạn ra câu trả lời hay hơn mình nhiều thế..."</em></div>
+            <div class="prob-title-row">
+              <span class="prob-icon">🧩</span>
+              <span class="prob-title">Chưa nắm cơ chế làm việc với AI</span>
+            </div>
+            <p class="prob-desc">Làm việc hiệu quả với AI không chỉ là biết tool nào hay cách viết prompt. Nó xoay quanh bốn khái niệm nền tảng: <strong>Model, Context, Memory, Plan</strong>. Không phân biệt được những thứ này, cùng một câu hỏi sẽ cho kết quả rất khác nhau — và bạn sẽ không biết tại sao.</p>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -584,41 +711,50 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <!-- ──────────── APPROACH ──────────── -->
   <section class="section-gap container fade-up">
     <div class="section-eyebrow">Cách tiếp cận của khoá học</div>
-    <h2 class="section-title">Nền tảng đủ để làm chủ AI — không phải nền tảng toàn diện</h2>
-    <p class="section-sub">Khoá học không cố gắng dạy hết mọi thứ về Web. Mục tiêu là giúp bạn có đủ kiến thức để đọc hiểu, đánh giá và kiểm soát những gì AI tạo ra — rồi tiếp tục tự học từ đó.</p>
-    <div class="approach-grid">
-      <div class="approach-item">
-        <div class="approach-num">1</div>
-        <div class="approach-text">
-          <strong>Học đủ để đánh giá — không phải học để thay thế AI</strong>
-          <p>Mỗi chủ đề được học đủ sâu để bạn có thể nhận ra khi AI tạo ra thứ gì đó không đúng. Không cần biết thuộc lòng — cần biết đủ để hỏi đúng câu và đọc hiểu câu trả lời.</p>
+    <h2 class="section-title">Bốn nguyên tắc thiết kế khoá học này</h2>
+    <p class="section-sub">Không dạy hết mọi thứ về Web. Mục tiêu là bạn có đủ nền tảng để đọc hiểu, đánh giá và kiểm soát những gì AI tạo ra — rồi tiếp tục tự học.</p>
+
+    <div class="method-rails">
+      <div class="method-item">
+        <div class="method-left" data-n="1">
+          <div class="method-num">Nguyên tắc 01</div>
+          <div class="method-heading">Không cần giỏi hơn AI —<br/>nhưng cần hiểu đủ để biết khi nào AI sai</div>
+        </div>
+        <div class="method-right">
+          <p>Bạn không cần thuộc hết mọi CSS property. Nhưng nếu không biết box model là gì, bạn sẽ không hiểu tại sao layout AI tạo ra bị lệch — và không biết sửa thế nào. Khoá học dạy đúng những nền tảng đó: <strong>không phải để bạn code mà không cần AI, mà để bạn nhận ra và sửa được khi AI tạo ra thứ gì đó không đúng.</strong></p>
         </div>
       </div>
-      <div class="approach-item">
-        <div class="approach-num">2</div>
-        <div class="approach-text">
-          <strong>Thực hành với AI trong từng ngữ cảnh cụ thể</strong>
-          <p>Mỗi level có AI Challenges riêng: học bằng AI, debug với AI, review code bằng AI, lên plan với AI. Không phải lý thuyết về AI — mà là luyện tập thực tế trong từng tình huống bạn sẽ gặp.</p>
+      <div class="method-item">
+        <div class="method-left" data-n="2">
+          <div class="method-num">Nguyên tắc 02</div>
+          <div class="method-heading">Thực hành với AI<br/>trong từng ngữ cảnh cụ thể</div>
+        </div>
+        <div class="method-right">
+          <p>Mỗi level có AI Challenges riêng — học bằng AI, debug với AI, review code bằng AI, lên plan với AI. Không phải lý thuyết về AI, mà là <strong>luyện tập trong đúng tình huống bạn sẽ gặp</strong> ở môn học, đồ án, hay công việc đầu tiên.</p>
         </div>
       </div>
-      <div class="approach-item">
-        <div class="approach-num">3</div>
-        <div class="approach-text">
-          <strong>Xây dựng trực giác về Context, Memory, Plan</strong>
-          <p>Cùng một câu hỏi — context khác nhau cho kết quả hoàn toàn khác. Khoá học xây dựng trực giác về điều này theo từng level, không dạy lý thuyết rồi để bạn tự suy ra.</p>
+      <div class="method-item">
+        <div class="method-left" data-n="3">
+          <div class="method-num">Nguyên tắc 03</div>
+          <div class="method-heading">Ai cung cấp thông tin tốt hơn cho AI —<br/>người đó nhận kết quả tốt hơn</div>
+        </div>
+        <div class="method-right">
+          <p>Báo lỗi cho AI kiểu <em>"code bị lỗi"</em> cho kết quả khác hoàn toàn với <em>"đây là component X, khi user làm Y thì lỗi Z xuất hiện, đây là stack trace"</em>. Khoá học luyện cách cung cấp thông tin phù hợp trong từng tình huống cụ thể — <strong>học, debug, review code, lên kế hoạch dự án — mỗi trường hợp có cách đặt vấn đề riêng.</strong></p>
         </div>
       </div>
-      <div class="approach-item">
-        <div class="approach-num">4</div>
-        <div class="approach-text">
-          <strong>Mỗi level kết thúc bằng một thứ chạy được thật sự</strong>
-          <p>Không có bài kiểm tra lý thuyết cuối level. Bạn build một thứ gì đó deploy được — và đó là bằng chứng bạn hiểu đủ để tiếp tục. Đến Level 5, project đó đủ để đưa vào CV.</p>
+      <div class="method-item">
+        <div class="method-left" data-n="4">
+          <div class="method-num">Nguyên tắc 04</div>
+          <div class="method-heading">Mỗi level kết thúc<br/>bằng thứ chạy được thật sự</div>
+        </div>
+        <div class="method-right">
+          <p>Không có bài thi lý thuyết cuối level. Bạn build một thứ deploy được — đó là bằng chứng bạn hiểu đủ để tiếp tục. <strong>Đến Level 5, project đó đủ để nói chuyện tự tin trong buổi phỏng vấn đầu tiên.</strong></p>
         </div>
       </div>
     </div>
 
     <!-- Stats -->
-    <div class="stats-row">
+    <div class="stats-row" style="margin-top: 2.5rem;">
       <div class="stat"><div class="stat-n">6</div><div class="stat-l">Levels</div></div>
       <div class="stat"><div class="stat-n">5</div><div class="stat-l">Modules</div></div>
       <div class="stat"><div class="stat-n">5</div><div class="stat-l">Labs</div></div>
@@ -629,24 +765,50 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </section>
 
   <!-- ──────────── FOR WHO ──────────── -->
-  <section class="section-gap container fade-up">
-    <div class="section-eyebrow">Khoá học này dành cho ai?</div>
-    <h2 class="section-title">Ba nhóm học viên khoá học hướng đến</h2>
-    <div class="audience-grid">
-      <div class="audience-card" data-icon="🎓">
-        <div class="audience-tag">Nhóm 1</div>
-        <div class="audience-title">Sinh viên CNTT đang theo học (năm 2–4)</div>
-        <div class="audience-desc">Đang học các môn liên quan đến Web và muốn dùng AI như một công cụ học tập thực sự — không chỉ để hoàn thành bài tập, mà để hiểu và giữ được kiến thức đó sau kỳ thi và sau khi ra trường.</div>
-      </div>
-      <div class="audience-card" data-icon="💼">
-        <div class="audience-tag">Nhóm 2</div>
-        <div class="audience-title">Người mới ra trường hoặc dưới 1,5 năm kinh nghiệm</div>
-        <div class="audience-desc">Đã học nhưng cảm thấy khoảng cách giữa những gì biết và những gì công việc thực tế đòi hỏi vẫn còn lớn. Muốn cập nhật cách làm việc trong môi trường mà AI đã là một phần bình thường của quy trình.</div>
-      </div>
-      <div class="audience-card" data-icon="🔧">
-        <div class="audience-tag">Nhóm 3</div>
-        <div class="audience-title">Kỹ sư ngành kỹ thuật khác muốn bổ sung Web</div>
-        <div class="audience-desc">Có nền tảng kỹ thuật từ các lĩnh vực như Data, IoT, tự động hoá, hay hệ thống nhúng — nhưng chưa có kinh nghiệm phát triển Web. Muốn học có hệ thống, không phải tự mò từng tutorial rời rạc.</div>
+  <section style="background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container section-gap fade-up">
+      <div class="section-eyebrow">Khoá học này dành cho ai?</div>
+      <h2 class="section-title">Bạn có nhận ra mình trong đây không?</h2>
+      <p class="section-sub">Khoá học được thiết kế xoay quanh ba tình huống thực tế phổ biến nhất mà người học Web gặp phải.</p>
+
+      <div class="persona-stack">
+
+        <div class="persona-item">
+          <div class="persona-left">
+            <div class="persona-emoji">🎓</div>
+            <div class="persona-tag-label">Sinh viên<br/>CNTT</div>
+          </div>
+          <div class="persona-right">
+            <div class="persona-scenario"><em>"Mình cũng dùng ChatGPT như mọi người — nhưng thầy vẫn chấm thấp hơn. Môn Web kỳ sau phải làm đồ án nhóm, mình muốn không chỉ nộp được mà còn thực sự hiểu mình đang làm gì."</em></div>
+            <div class="persona-name">Sinh viên năm 2–4 đang theo học chuyên ngành CNTT hoặc liên quan</div>
+            <p class="persona-desc">Bạn đang học các môn Web tại trường và muốn dùng AI như công cụ học tập thực sự — không chỉ hoàn thành bài tập, mà xây dựng kiến thức có thể giữ lại được đến khi đi thực tập và xin việc.</p>
+          </div>
+        </div>
+
+        <div class="persona-item">
+          <div class="persona-left">
+            <div class="persona-emoji">💼</div>
+            <div class="persona-tag-label">Mới ra<br/>trường</div>
+          </div>
+          <div class="persona-right">
+            <div class="persona-scenario"><em>"Ra trường được 6 tháng, đi thực tập thấy codebase thật rất khác bài tập ở trường. AI giúp được nhưng mình không biết cách mô tả vấn đề cho nó hiểu."</em></div>
+            <div class="persona-name">Người mới ra trường hoặc dưới 1,5 năm kinh nghiệm trong ngành</div>
+            <p class="persona-desc">Bạn đã có kiến thức nền từ trường học nhưng cảm thấy khoảng cách với yêu cầu thực tế vẫn còn. Muốn cập nhật cách tư duy và làm việc trong môi trường mà AI đã là một phần bình thường của quy trình phát triển.</p>
+          </div>
+        </div>
+
+        <div class="persona-item">
+          <div class="persona-left">
+            <div class="persona-emoji">🔧</div>
+            <div class="persona-tag-label">Kỹ sư<br/>ngành khác</div>
+          </div>
+          <div class="persona-right">
+            <div class="persona-scenario"><em>"Mình làm Data/IoT/tự động hoá — đôi khi cần build giao diện web hoặc dashboard. Tự học tutorial thì hay bị lạc, không có bức tranh tổng thể."</em></div>
+            <div class="persona-name">Kỹ sư từ các lĩnh vực kỹ thuật liên quan muốn bổ sung kỹ năng Web</div>
+            <p class="persona-desc">Bạn có nền tảng kỹ thuật từ Data, IoT, tự động hoá, hay hệ thống — nhưng chưa có kinh nghiệm phát triển Web có hệ thống. Muốn học đúng trình tự, không phải nhặt nhạnh từng tutorial rời rạc.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1462,7 +1624,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <footer>
     <p>
       <a href={`${base}/`}>The Web Basic</a>
-      · Học Phát Triển Web Trong Thời Kỳ AI
+      · Học Phát Triển Web Trong Kỷ Nguyên AI
       · <a href="https://github.com/nghuuquyen/basic-web-course" target="_blank" rel="noopener">GitHub</a>
     </p>
   </footer>
